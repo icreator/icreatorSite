@@ -1,0 +1,85 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Линейный усилитель мощности без общей ООС</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY>
+<!--begin of Top100-->
+<a href="http://top100.rambler.ru/top100/"><img src="http://counter.rambler.ru/top100.cnt?363068" alt="Rambler's Top100" width=1 height=1 border=0></a>
+<!--end of Top100 code-->
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<img src="http://top.list.ru/counter'+
+'?id=269943;js='+js+a+';rand='+Math.random()+
+'" height=1 width=1>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><img
+src="http://top.list.ru/counter?js=na;id=269943"
+height=1 width=1 alt=""></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">Линейный усилитель мощности без общей ООС. Схема. Этот вариант имеет более низкий коэффициент гармоник, менее 0,09. Однако имеет меньшую выходную мощность и работает на нагрузку не менее 8 Ом. Выходная мощность его около 60Вт. Ток покоя 333мА. Скорость нарастания не менее 100В/мкс, при этом нет никаких выплесков напряжения, то есть динамические и интермодуляционные искажения вообще отсутсвуют.</P>
+<P ALIGN="JUSTIFY">Усилитель мощности, созданн по выше </FONT><A HREF="ampl1.htm#описанным принципам"><U><FONT FACE="Times New Roman" COLOR="#0000ff">описанным принципам</U></FONT></A><FONT FACE="Times New Roman"> изображен на рисунке </P>
+<P ALIGN="JUSTIFY">В основу данной статьи положена задача создания усилителя мощности, позволяющего за счет нового схематического решения достичь линейности усиления больших сигналов без использования обратной отрицательной связи, ликвидировать динамические искажения, предотвратить влияние разброса характеристик транзисторов на режим усиления, ликвидировать коммутационные искажения усилителя и предотвратить влияние температуры на режим работы усилителя.</P>
+<P ALIGN="JUSTIFY">Схема усилителя. Если рисунок плохо отмаштабировался и не все видно - сохраните его у себя на диске и просмотрите в другой программе.</P>
+</FONT><P ALIGN="JUSTIFY"><IMG SRC="REAL!.gif" WIDTH=929 HEIGHT=684></P>
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">ОУ может быть любой. Стабилизатор 12В нужно питать то отдельной обмотки трансформатора. Датчики тока расположены вблизи выходных транзисторов. Блок контроля тока такой же как и у других вариантов. Токи выходного каскада показаны ниже.</P><IMG SRC="1SIMPLE.gif" ALIGN="LEFT" WIDTH=504 HEIGHT=321>
+<P ALIGN="JUSTIFY">Блок датчиков тока. Схема приведена в варианте 1 </FONT><A HREF="ampl1.htm"><U><FONT COLOR="#0000ff">ampl1.htm </U></FONT></A></P>
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">Блок контроля тока покоя. При переходе через ноль тока нагрузки запоминается ток через выходной транзистор до следующего переходя тока нагрузки через ноль. Таким образом получаем на выходе напряжение величиной равную току покоя выходных транзисторов. Затем эта величина сравнивается с эталоном и разность усиливается интегратором и подается на оптпару, которая шунтирует базы выходных транзисторов. Резисторы 213, 649, 120к должны быть с отклонением 1% друг от друга. Например, если нет резисторов сопротивлением 213 с 1%, то можно взять другие, например, с 245 сопротивлением и с1% погрешностью. То есть РР14=РР10=РР8, РР9=РР15=РР18, РР20=РР21=РР30=РР32=РР33=РР34. Тогда схема самонастраивается. Нужно лишь выставить 0 в точке соединения резисторов РР20 и РР21. Это можно сделать с помощью одно из резисторов 213.</P>
+<P ALIGN="JUSTIFY">Настройка усилителя.</P>
+<OL>
+
+<P ALIGN="JUSTIFY"><LI>Если использованы другие транзисторы или необходимо установить другой коэффициент усиления то нужно подобрать резисторы: РР3 и РР4 для Кус, и РР1 - для установке нуля на выходе ОУ</LI></P>
+<P ALIGN="JUSTIFY"><LI>Настройка контроля тока покоя. Необходимо закоротить базы выходных транзисторов ТТ10 и ТТ11. Закоротить резисторы датчиков тока РР20 и РР21. Установить ноль в средней точке датчиков тока. Убрать все перемычки. Выставить ток покоя на 200-300мА из расчета что Ток покоя = двойному напряжению на неинвертирующем входе ОУ.</LI></P>
+<P ALIGN="JUSTIFY"><LI>Настройка нулевого смещения. Подобрать сопротивление РР3 так чтобы на выходе ОУ 1 было около 0.</LI></P></OL>
+
+<P ALIGN="JUSTIFY">Компоновка узлов.</P>
+<P ALIGN="JUSTIFY">Датчики тока смонтированы навесным монтажом на выходных транзисторах. Выходами являются коллекторы транзисторов датчиков тока. Сами резисторы 649 и 120к расположены на плате контроля тока покоя.</P>
+<P ALIGN="JUSTIFY">Каскады усиления напряжения так же отделены от предоконечного каскада.</P>
+<P ALIGN="JUSTIFY">Блок питания был использован штатный от усилителя Электроника 050-УС. Напряжение питания 32В нестабилизированное. На средней громкости напряжение питания успешно фильтровалось штатными конденсаторами. При большой выходной мощности сказывалась просадка напряжения. В реальном режиме наблюдался ток через выходные транзисторы на экране осциллографа. Было видно, что скорость их закрывания была еще меньше чем при расчете. То есть ток через них плавно подходил к минимуму и более быстро уходил вверх.</P>
+<A HREF="real_o.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">некоторые обсуждения схемы</U></FONT></A>
+<P ALIGN="JUSTIFY">Недавно я посмотрел схему усилителя Корвет 200Вт. Там для реализации плавного закрывания транзисторов целая отдельная схема из нескольких транзисторов и одной микросхемы. Правда она еще выполняет функцию лианиризации выходного каскада. Смоделировал я ее (</FONT><A HREF="korvet-200-088o.gif"><U><FONT COLOR="#0000ff">схема усилителя мощности Корвет</U></FONT></A><FONT FACE="Times New Roman">) без цепей защиты - компьютер посчитал - искажения нулевые, динамические характеристики отличные. Но как это звучит, я не знаю. Уж лучше чем городить такой огород сделать </FONT><A HREF="shim.htm#импульсный усилитель мощности класса А"><U><FONT FACE="Times New Roman" COLOR="#0000ff">импульсный усилитель мощности класса А</U></FONT></A></P><DIR>
+
+<FONT FACE="Times New Roman"><P>&#9;Автор Ермолаев Дмитрий Сергеевич </FONT></P></DIR>
+<p><A HREF="HTTP://icreator.ru/amplif/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A></p>
+
+<!--Rating@Mail.ru LOGO--><a target=_top
+href="http://top.mail.ru/jump?from=269943"><img
+src="http://top.list.ru/counter?id=269943;t=55;l=1"
+border=0 height=31 width=88
+alt="Рейтинг@Mail.ru"></a><!--/LOGO-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";
+hotlog_r=""+Math.random()+"&s=25682&im=116&r="+escape(document.referrer)+"&pg="+
+escape(window.location.href);
+document.cookie="hotlog=1; path=/"; hotlog_r+="&c="+(document.cookie?"Y":"N");
+</script><script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";
+hotlog_r+="&wh="+screen.width+'x'+screen.height+"&px="+
+(((navigator.appName.substring(0,3)=="Mic"))?
+screen.colorDepth:screen.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+document.write("<a href='http://click.hotlog.ru/?25682' target='_top'><img "+
+" src='http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&' border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=116" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog -->
+<!--begin of Top100 logo-->
+<a href="http://top100.rambler.ru/top100/"><img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-green2.gif" alt="Rambler's Top100" width=88 height=31 border=0></a>
+<!--end of Top100 logo -->
+</BODY>
+</HTML>

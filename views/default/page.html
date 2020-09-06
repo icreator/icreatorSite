@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+
+<div class='container' style='background-color:maroon;'>
+
+{{if 'h' in globals():}}
+{{=h}}
+{{pass}}
+
+{{include page if 'page' in globals() else None}}
+
+{{if 'f' in globals():}}
+{{=f}}
+{{pass}}
+
+</div>

@@ -1,0 +1,68 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Преобразователь параллельного кода в ШИМ сигнал с высоким разрешением</TITLE>
+</HEAD>
+<BODY>
+<!--begin of Top100-->
+<a href="http://top100.rambler.ru/top100/"><img src="http://counter.rambler.ru/top100.cnt?363068" alt="Rambler's Top100" width=1 height=1 border=0></a>
+<!--end of Top100 code-->
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<img src="http://top.list.ru/counter'+
+'?id=269943;js='+js+a+';rand='+Math.random()+
+'" height=1 width=1>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><img
+src="http://top.list.ru/counter?js=na;id=269943"
+height=1 width=1 alt=""></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+
+<B><FONT FACE="Times New Roman" SIZE=4><P ALIGN="JUSTIFY">Преобразователь аналогово сигнала в ШИМ для импульсного усилителя класса А</P><DIR>
+
+</B></FONT><FONT FACE="Times New Roman"><P>На микросхеме КР1114ЕУ4 (</FONT>TL494) <FONT FACE="Times New Roman">можно сделать ШИМ-усилитель очень просто. Вот схема самого ШИМ-преобразователя. Его выход “ШИМ” нужно подать на вход драйвера управляющего полевыми транзисторами. Сама микросхема работает так: усилители ошибки отключены, так что они не влияют на работу схемы. Сигнал подается прямиком на ШИМ-компаратор. </FONT>“<FONT FACE="Times New Roman">мертвое” время равно 5% от цикла. Выходной каскад работает в однотактом режиме, так что сигнал можно снимать с любого выходного транзистора, которые включены по схеме с общим эмиттером. Середина напряжения устанавливается резистором РР10. </FONT> <FONT FACE="Times New Roman">Резистор РР2 регулирует частоту генератора. Нагрузочный резистор РР3 должен быть 2Вт. Цепь питания желательно зашунтировать танталовым конденсатором ёмкостью 1мкФ в непосредственной близи от ножек притания микросхемы 7 и 12</FONT> <FONT FACE="Times New Roman">Здесь нужно помнить, что если частота ШИМ по каким-либо причинам будет сорвана, то на выходе появится постоянное напряжение равное напряжению питания. поэтому желательно сделать защиту выходных цепей от появления постоянного напряжения на выходе. Управление такой защитой предусмотренно в микросхемах фирмы IR. Например у микросхемы IR2104 на третью ножку можно подать запрет открывания обоих полевых транзисторов</FONT>.</P>
+</FONT><P><IMG SRC="TL494.gif"></P>
+<P>&nbsp;</P>
+<FONT FACE="Times New Roman"><P>&#9;Автор Ермолаев Дмитрий Сергеевич </FONT></P>
+<A HREF="HTTP://icreator.ru/amplif/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A>
+<P><A HREF="HTTP://www.icreator.ru/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">на главную страницу</U></FONT></A><FONT SIZE=2>&nbsp;</P></DIR>
+
+<!--Rating@Mail.ru LOGO--><a target=_top
+href="http://top.mail.ru/jump?from=269943"><img
+src="http://top.list.ru/counter?id=269943;t=55;l=1"
+border=0 height=31 width=88
+alt="Рейтинг@Mail.ru"></a><!--/LOGO-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";
+hotlog_r=""+Math.random()+"&s=25682&im=116&r="+escape(document.referrer)+"&pg="+
+escape(window.location.href);
+document.cookie="hotlog=1; path=/"; hotlog_r+="&c="+(document.cookie?"Y":"N");
+</script><script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";
+hotlog_r+="&wh="+screen.width+'x'+screen.height+"&px="+
+(((navigator.appName.substring(0,3)=="Mic"))?
+screen.colorDepth:screen.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+document.write("<a href='http://click.hotlog.ru/?25682' target='_top'><img "+
+" src='http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&' border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=116" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog -->
+<!--begin of Top100 logo-->
+<a href="http://top100.rambler.ru/top100/"><img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-green2.gif" alt="Rambler's Top100" width=88 height=31 border=0></a>
+<!--end of Top100 logo -->
+</BODY>
+</HTML>

@@ -1,0 +1,183 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<TITLE>Логическое программирование. ПРОЛОГ программа</TITLE>
+</HEAD>
+<BODY BGCOLOR="#cdc6a7">
+
+<FONT FACE="Courier New" SIZE=2><P>Программа на ПРОЛОГе решения головоломки.</P>
+<P>
+Автор Ермолаев Д.С., Москва, </FONT><A HREF="http://www.icreator.ru/index.htm"><U><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">www.icreator.ru</U></FONT></A></P>
+<FONT FACE="Courier New" SIZE=2><P>Ключевые слова. Программа на языке ПРОЛОГ, реализующая поиск решения в игре-головоломке.</P>
+</FONT><FONT FACE="Courier New">Есть игра, которая ставит своей целью преобразовать начальное слово в конечное с помощью изменения на каждом шаге только одной буквы слова. Например, начальное слово “роза”, а конечное должно быть “кора”. Первый шаг - “роза” -</FONT>&gt;<FONT FACE="Courier New"> “коза”, далее “коза” -</FONT>&gt;<FONT FACE="Courier New"> “кора”. Головоломка решена. Программа написана на ПРОЛОГе с использованием переменной, объявленной как </FONT>reference<FONT FACE="Courier New">. В этом случае ПРОЛОГ разрешает использовать несвязанные значения в переменной. Вывод пути поиска происходит в виде корня с отступом. Алгоритм поиска основан на механизме унификации значений Пролога. Начальное слово разбивается на символы. Тогда можно делать поиск слов в базе знаний ПроЛога по шаблону, используя унификацию. Этот шаблон получаем из текущего слова, делая один символ несвязанным. Например, если сделать поиск факта в базе с одним несвязанным символом - <P>слово(['р','о',НеизвСимол,'а']),</P> то ПроЛог выдаст все возможные варианты, в которых переменная НеизвСимвол будет связана с символом слова, подходящего по шаблону. Для каждого такого значения-символа делается проверка на совпадение с конечным результатом. Если совпадение успешно, то выход. Если совпадение неуспешно, то текущее слово берем уже с данным НеизвСимвол и повторяем поиск для него вызывая рекурсию. Если, для текущей позиции НеизвСимвола не найдено решение, то берем следующую позицию в слове. И так пока не будут перебраны все символы слова. При поиске текущего слова, оно удаляется из базы знаний, так чтобы не было повторов и зацикливаний. 
+</FONT></P>
+------------------------------------
+<PRE>
+<FONT FACE="Courier New" COLOR="#008000">/* программа решения головоломки *</FONT><FONT COLOR="#008000">/
+</FONT><FONT FACE="Courier New" COLOR="#008000">% преобразует в слове одну букву и ищет такое реальное слово
+% и так далее пока не дойдет до нужного ответа
+% пример коза - роза - рога... а нужно тёща
+% при нахождении выдает цепочку пройденных слов на экран
+</FONT>
+<FONT FACE="Courier New" COLOR="#008000">% база знаний, содержащая слова
+</FONT><FONT FACE="Courier New" COLOR="#0000ff">database - слова
+</FONT><FONT FACE="Courier New">слово(Буквы)
+</FONT><FONT COLOR="#0000ff">
+domains
+</FONT><FONT FACE="Courier New">Слово = string
+Буква = char
+Буквы = </FONT><FONT COLOR="#0000ff">reference</FONT><FONT FACE="Courier New"> Буква* % позволяет в списке иметь неопределенные значения
+</FONT><FONT COLOR="#0000ff">
+predicates
+</FONT><FONT FACE="Courier New">
+слово_в_буквы(Слово Вх, Буквы Вх)
+сложить_буквы(Буквы Начало, Буквы Остаток , Буквы)
+сложить_с_буквой(Буквы Начало, Буква, Буквы Начало1)
+</FONT><FONT COLOR="#0000ff">nondeterm</FONT><FONT FACE="Courier New"> забыть_слово(Буквы Слово)
+</FONT><FONT COLOR="#0000ff">
+clauses
+</FONT><FONT FACE="Courier New" COLOR="#008000">% служебные предикаты обработки символов и слов
+</FONT>
+<FONT FACE="Courier New">забыть_слово(Слово):-retract(слово(Слово)),!.
+забыть_слово(_):-!.
+</FONT>
+<FONT FACE="Courier New">сложить_буквы([БукваНач|БуквыНач], БуквыОстаток , [БукваНач|БуквыВых]):-
+&#9;сложить_буквы(БуквыНач, БуквыОстаток , БуквыВых),
+</FONT>&#9;!.
+<FONT FACE="Courier New">сложить_буквы([], БуквыОстаток , БуквыОстаток):-!.
+</FONT>&#9;
+<FONT FACE="Courier New">сложить_с_буквой([Б|Начало],Буква,[Б|Слово]):-
+&#9;сложить_с_буквой(Начало,Буква,Слово),
+</FONT>&#9;!.
+<FONT FACE="Courier New">сложить_с_буквой([],Буква,[Буква]):-!.
+</FONT>
+<FONT FACE="Courier New">слово_в_буквы(СловоВх, [Буква|БуквыВх]):-
+&#9;frontchar(СловоВх,Буква,СловоВхОст),
+&#9;слово_в_буквы(СловоВхОст, БуквыВх),
+</FONT>&#9;!.
+<FONT FACE="Courier New">слово_в_буквы(_,[]):-</FONT>!.
+
+<FONT COLOR="#0000ff">predicates
+</FONT><FONT FACE="Courier New">поиск(Слово Отступ, Буквы ВхС, Буквы ВыхС)
+роза(Слово Входное, Слово Выходное)
+</FONT><FONT COLOR="#0000ff">nondeterm</FONT><FONT FACE="Courier New"> поиск_по_буквам(Слово Отступ, Буквы Начало, Буквы Остаток, Буквы Вых)
+</FONT><FONT COLOR="#0000ff">
+clauses
+</FONT><FONT FACE="Courier New" COLOR="#008000">% предикаты решения головоломки
+</FONT>
+<FONT FACE="Courier New">поиск_по_буквам(Отступ,Начало,[ТекБуква|Остаток],ВыхС):-
+</FONT><FONT FACE="Courier New" COLOR="#008000">% здесь ТекБуква опускается при создании шаблона поиска</FONT><FONT FACE="Courier New">
+	сложить_буквы(Начало, [_|Остаток],СловоНайдено),
+	слово(СловоНайдено),
+	nl,write(Отступ,СловоНайдено),
+</FONT><FONT COLOR="#008000">% </FONT><FONT FACE="Courier New" COLOR="#008000">другое подобное слово найдено, тогда
+</FONT><FONT COLOR="#008000">% </FONT><FONT FACE="Courier New" COLOR="#008000">вызов рекурсии для нового слова
+</FONT><FONT FACE="Courier New">&#9;поиск(Отступ,СловоНайдено,ВыхС),
+</FONT>&#9;!.
+<FONT FACE="Courier New" COLOR="#008000">% не найдено, возьмем следующую букву</FONT>
+<FONT FACE="Courier New">поиск_по_буквам(Отступ,Начало,[Буква|Остаток],ВыхС):-
+&#9;сложить_с_буквой(Начало,Буква,Начало1),
+&#9;поиск_по_буквам(Отступ,Начало1,Остаток,ВыхС),
+</FONT>&#9;!.
+
+<FONT FACE="Courier New" COLOR="#008000">% если текущее слово совпало с искомым: решение найдено
+</FONT><FONT FACE="Courier New">поиск(_,ВыхС,ВыхС):-write(" !!нашлось!!"),!.
+поиск(Отступ,ВхС,ВыхС):-
+</FONT><FONT FACE="Courier New" COLOR="#008000">&#9;% взятое слово забудем - так чтобы не</FONT><FONT COLOR="#008000"> </FONT><FONT FACE="Courier New" COLOR="#008000">было повторов
+&#9;% его обработки по другим цепочкам
+</FONT><FONT FACE="Courier New">&#9;забыть_слово(ВхС),
+</FONT><FONT FACE="Courier New" COLOR="#008000">% сделаем отступ для наглядного вывода на экран
+</FONT><FONT FACE="Courier New">&#9;concat(Отступ,"   ",Отступ1),
+</FONT><FONT FACE="Courier New" COLOR="#008000">% проверка каждой буквы в слове
+</FONT><FONT FACE="Courier New">&#9;поиск_по_буквам(Отступ1,[],ВхС,ВыхС),
+</FONT>&#9;!.
+&#9;
+<FONT FACE="Courier New" COLOR="#008000">% предикат поиска решения
+</FONT><FONT FACE="Courier New">роза(Вх,Вых):-
+</FONT><FONT FACE="Courier New" COLOR="#008000">% преобразуем каждое слово в список символов
+</FONT><FONT FACE="Courier New">&#9;слово_в_буквы(Вх,ВхС),
+&#9;слово_в_буквы(Вых,ВыхС),
+</FONT><FONT FACE="Courier New" COLOR="#008000">% загрузим базу знаний
+</FONT><FONT FACE="Courier New">&#9;consult("роза.txt",слова),
+</FONT><FONT FACE="Courier New" COLOR="#008000">% сам поиск решения
+</FONT><FONT FACE="Courier New">&#9;поиск("",ВхС,ВыхС),
+</FONT>&#9;!.
+</PRE>
+<FONT FACE="Courier New">Здесь предикат "поиск" выполняет сравнение текущего слова с искомым словом. если сравнение удачное, то конец поиска решения. Если текущее слово не является искомым, то запускаем "поиск_по_буквам" для него. Предикат "поиск_по_буквам" проверяет все буквы слова начиная с первой. При этом каждый раз ищется слово в базе по шаблону с помощью предиката "найти_слово_подобное". Если новое слово, отличающееся от текущего на одну букву, найдено, то вызывается предикат "поиск" для нового найденного слова. Если слов по шаблону больше не найдено, то перебор проверяемых букв в слове продолжается. Предикат "найти_слово_подобное" делает поиск по шаблону в базе знаний. Шаблон поиска создается предикатом "сложить_буквы" из частей слова, которые стоят справа и слева от текущего проверяемого символа.</FONT>
+<PRE>
+/*-------------------------------
+<FONT FACE="Courier New">Файл роза.txt содержит следующие факты:
+слово(['к','о','з','а']).
+слово(['к','о','р','а']).
+слово(['к','о','р','ь']).
+слово(['р','о','з','а']).
+слово(['р','о','ж','а']).
+слово(['р','о','б','а']).
+слово(['р','а','б','а']).
+слово(['р','ы','б','а']).
+слово(['р','а','м','а']).
+слово(['к','о','ж','а']).
+слово(['п','о','з','а']).
+слово(['п','о','р','а']).
+слово(['р','о','ж','ь']).
+</FONT>------------------------------*/
+<FONT COLOR="#0000ff">Goal</FONT>:-
+<FONT FACE="Courier New">&#9;роза("роза","рожь"),
+</FONT>&#9;!.
+
+Ответ ПроЛога:
+['к','о','з','а']
+  ['п','о','з','а']
+    ['п','о','р','а']
+      ['к','о','р','а']
+        ['к','о','ж','а']
+          ['р','о','ж','а']
+            ['р','о','б','а']
+              ['р','а','б','а']
+                 ['р','ы','б','а']
+                 ['р','а','м','а']
+            ['р','о','ж','ь'] !!нашлось!!<P></P></PRE>
+
+<P><A HREF="HTTP://icreator.ru/programming/"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A></P>
+
+<P><A HREF="HTTP://www.icreator.ru/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">на главную страницу</U></FONT></A> </P>
+<P><!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=269943"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=269943;t=180;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=15 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><A HREF="http://top.mail.ru/jump?from=269943"><IMG SRC="http://top.list.ru/counter?js=na;id=269943;t=180" BORDER=0 WIDTH=88 HEIGHT=15 ALT="Рейтинг@Mail.ru"></A></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";hotlog_d=document; hotlog_n=navigator;hotlog_rn=Math.random();
+hotlog_n_n=(hotlog_n.appName.substring(0,3)=="Mic")?0:1;
+hotlog_r=""+hotlog_rn+"&s=25682&im=26&r="+escape(hotlog_d.referrer)+"&pg="+
+escape(window.location.href);
+hotlog_d.cookie="hotlog=1"; hotlog_r+="&c="+(hotlog_d.cookie?"Y":"N");
+hotlog_d.cookie="hotlog=1; expires=Thu, 01-Jan-70 00:00:01 GMT"</script>
+<script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";hotlog_s=screen;
+hotlog_r+="&wh="+hotlog_s.width+'x'+hotlog_s.height+"&px="+((hotlog_n_n==0)?
+hotlog_s.colorDepth:hotlog_s.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+hotlog_d.write("<a href=http://click.hotlog.ru/?25682 target=_top><img "+
+"src=\"http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&\" border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=26" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog -->
+</BODY>
+</HTML>

@@ -1,0 +1,736 @@
+{{extend 'layout.html'}}
+
+<div class='container' style='background-color:maroon;'>
+{{=h}}
+
+<table width="1107" cellpadding="9" cellspacing="1">
+	<tr valign="top">
+		<td width="16%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.19cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Величины</font></font></p>
+		</td>
+		<td width="20%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.19cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Обобщенная</font></font></p>
+		</td>
+		<td width="20%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.19cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электростатика
+			<br>Электростатическое поле</font></font></p>
+		</td>
+		<td width="19%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.19cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электрофизика
+			<br>Электрический ток</font></font></p>
+		</td>
+		<td width="25%" style="border: 1px double #808080; padding: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнетизм,
+			магнитное поле</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Подстановки
+			и замены величин</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>Q</u></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=q
+			(электрозаряд, Кулон), </font></font><font size="1" style="font-size: 7pt"><u>U</u></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=U
+			(напряжение поля, Вольт)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>Q</u></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=q
+			(электрозаряд, Кулон), </font></font><font size="1" style="font-size: 7pt"><u>U</u></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=U
+			(напряжение поля, Вольт)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">=E,
+			</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">=</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(магнитный
+			поток, Вебер), </font></font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">=U</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(магнитное
+			напряжение, Ампер)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Энергия
+			</font></font><font size="1" style="font-size: 7pt"><u>E</u></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			потенциальная энергия </font></font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">0</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			работа </font></font><font size="1" style="font-size: 7pt"><u>A </u></font>
+			</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">,
+			</font><font size="1" style="font-size: 7pt"><u><br>E</u></font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			</font><font size="1" style="font-size: 7pt"><u><br>A</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*d</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">
+			<br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Джоуль
+			= заряд*напряжение</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">)
+			или энергия есть действие на результат действия</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">E=q*U,
+			где q - электрический заряд, U- напряжение поля.
+			<br>(Джоуль=Кулон*Вольт)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">E=q*U,
+			где q - электрический заряд, U- напряжение поля.
+			<br>(Джоуль=Кулон*Вольт)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font size="1" style="font-size: 7pt">E = </font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			*U </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(Джоуль=Вебер</font></font><font size="1" style="font-size: 7pt">*</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">Ампер)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Заряд
+			энергии, энергетический заряд, энергозаряд</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>U</u></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			(Джоуль/напряжение)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электрозаряд(заряд),
+			q= E/U </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Кулон</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/Вольт)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электрозаряд
+			(заряд), q=E/U </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Кулон</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/Вольт)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнетозаряд
+			(полный магнитный поток - потокосцепление: стр14 физ. Величины) </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			=E/U= B*S</font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=L*I,
+			где S</font></font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><font size="1" style="font-size: 7pt">- </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">полная
+			площадь через которую проходит магнитный поток, S</font></font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><font size="1" style="font-size: 7pt">=w*S,</font>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">где
+			</font></font><font size="1" style="font-size: 7pt">w</font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			число витков обмотки,</font></font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">S
+			- площадь окна витка; B - магнитная индукция в окне витка; L</font></font>
+			<font size="1" style="font-size: 7pt">- </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">индуктивность,
+			</font></font><font size="1" style="font-size: 7pt">I</font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			электроток в обмотке </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Вебер</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=
+			Джоуль/Ампер = <br>Тесла*м</font></font><sup><font size="1" style="font-size: 7pt">2
+			</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">=
+			Ампер*Генри)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Напряжение</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">
+			= </font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>Q</u></font>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			работа, совершенная при </font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>переносе</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			энергозаряда</font></font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">между
+			двумя энергопотенциалами, <br>(Джоуль/энергозаряд)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Напряжение
+			поля, U=</font></font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><font size="1" style="font-size: 7pt">=E/q, <br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Вольт</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/Кулон)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">U=</font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			=E/q, <br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Вольт</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/Кулон)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнитонапряжение,
+			</font></font><font size="1" style="font-size: 7pt">U = E/</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			= I</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			где </font></font><font size="1" style="font-size: 7pt">I</font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			электроток в обмотке, <br>(Ампер = Джоуль/Вебер)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Состояние
+			энергии - энергопотенциал</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>U</u></font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">
+			= </font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>Q</u></font><sub><font size="1" style="font-size: 7pt">0</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			работа, совершенная при </font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>вносе</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			незначительного заряда в энергетическое поле</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Потенциал
+			поля U</font></font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">=</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			=E/q</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">Равен
+			энергии которую нужно приложить, чтобы внести в поле тестовый
+			заряд.</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Потенциал
+			U</font></font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">=</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			=E/q</font><sub><font size="1" style="font-size: 7pt">0 </font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			абсолютное напряжение, <br>(Вольт)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Напряженность
+			магнитного поля, </font></font><font size="1" style="font-size: 7pt">H
+			= U/h</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			где </font></font><font size="1" style="font-size: 7pt">h</font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			расстояние, (Ампер/метр)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Действие
+			энергии, скорость перетока энергозаряда, энерготок.</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>I</u></font><font size="1" style="font-size: 7pt">
+			= d</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">/dt=d</font><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">/dt/</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(энергозаряд/секунда
+			= <br>Джоуль/секунда/напряжение)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электроток,
+			I = dq/dt </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Ампер</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/Вольт/секунда = Кулон/секунда)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электроток,
+			I = dq/dt </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Ампер</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/Вольт/секунда = Кулон/секунда)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнитоток,
+			</font></font><font size="1" style="font-size: 7pt">Im = </font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			/t=B*S</font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font size="1" style="font-size: 7pt">
+			/t </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(Вебер/сек)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Ускорение
+			энерготока</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&lsquo;<font size="1" style="font-size: 7pt"><u>I</u></font><font size="1" style="font-size: 7pt">
+			= d</font><font size="1" style="font-size: 7pt"><u>I</u></font><font size="1" style="font-size: 7pt">/dt,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(энергозаряд/секунда</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">)</font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p>&nbsp;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Сопротивление
+			действию</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>R </u></font><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>I
+			</u></font><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>U</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">*dt/d</font><font size="1" style="font-size: 7pt"><u>E
+			</u></font><font size="1" style="font-size: 7pt">=t*</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>Q
+			</u></font><font size="1" style="font-size: 7pt"><br>=</font><font size="1" style="font-size: 7pt"><u>U</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>P
+			</u></font><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>P</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>I</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(напряжение/энерготок
+			= напряжение</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">*секунда/Джоуль
+			= секунда*напряжение/заряд = напряжение</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/Ватт
+			= Ватт/энерготок</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">)</font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электросопротивление,
+			R, Z, X, </font></font><font size="1" style="font-size: 7pt">R=U/I=t*U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/E,
+			<br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Ом</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=Вольт/Ампер
+			= секунда*Вольт</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/Джоуль
+			= секунда*Вольт/Кулон)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Электросопротивление,
+			R, Z, X, </font></font><font size="1" style="font-size: 7pt">R=U/I=t*U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/E=U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/P=P/I</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">,
+			<br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Ом</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=Вольт/Ампер=
+			секунда*Вольт</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/Джоуль
+			= секунда*Вольт/Кулон)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнитосопротивление
+			</font></font><font size="1" style="font-size: 7pt">R = U/Im =
+			I*t/(B*S</font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font size="1" style="font-size: 7pt">
+			) = t/L, </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(сек/Генри
+			= Ампер*секунда/Вебер = секунда*Ампер</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/Джоуль)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Потенциальная
+			ёмкость энергии, потенцио-энергоёмкость, ёмкость (коэффициент
+			ускорения).</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=
+			</font><font size="1" style="font-size: 7pt"><u>I</u></font><font size="1" style="font-size: 7pt">*dt/d</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">/d</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">
+			=0.5*</font><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>U</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			=</font><font face="Symbol"><font size="1" style="font-size: 7pt">a</font></font><font size="1" style="font-size: 7pt">
+			</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">a</font></font><font size="1" style="font-size: 7pt">
+			*</font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">Обратно
+			скорости изменения напряжения (потенциала), при данном энерготоке.</font></font>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">Здесь
+			</font></font><font face="Symbol"><font size="1" style="font-size: 7pt">a</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><sub><font size="1" style="font-size: 7pt">0</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			постоянная энергии, </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">a</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			- качественный и </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><font size="1" style="font-size: 7pt">-
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">количественный
+			показатели материи(поля) энергии. <br>(энергозаряд/напряжение=
+			Джоуль/напряжение</font></font><sup><font size="1" style="font-size: 7pt">2
+			</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">=секудна*энерготок/напряжение)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Ёмкость,
+			C=q/dU=I*dt/dU, </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Фарад</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Кулон/Вольт = Джоуль/Вольт</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">=
+			секунда*Ампер/Вольт) </font></font><font size="1" style="font-size: 7pt">C=</font><font face="Symbol"><font size="1" style="font-size: 7pt">e</font></font><font size="1" style="font-size: 7pt">
+			</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">e</font></font><font size="1" style="font-size: 7pt">
+			*S/h, </font>
+			</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">C</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">=q/dU=I*dt/dU
+			= С (ёмкость), <br>Количество электрозаряда для создания перепада
+			в 1 Вольт </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Фарад</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Кулон/Вольт = Джоуль/Вольт</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">=
+			секунда*Ампер/Вольт)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнитоемкость</font></font>
+			<font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">индуктивность
+			</font></font><font size="1" style="font-size: 7pt">L), </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">С</font></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">
+			=</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			/U =Im*dt/dU =0.5*E/U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			= L, <br>L = </font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font size="1" style="font-size: 7pt">
+			</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font size="1" style="font-size: 7pt">
+			*S*w</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			где </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><sub><font size="1" style="font-size: 7pt">0</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			магнитная постоянная; </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			- магнитная проницаемость среды; S - средняя площадь окна витка
+			обмотки,</font></font> <font size="1" style="font-size: 7pt">w -
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">число
+			витков в обмотке, <br>(Генри = Вебер/Ампер)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Кинетическая
+			ёмкость энергии, кинето-энергоёмкость, индуктивность (коэффициент
+			реакции, инерции).</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">
+			=</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">*dt/d</font><font size="1" style="font-size: 7pt"><u>I</u></font><font size="1" style="font-size: 7pt">
+			=0.5*</font><font size="1" style="font-size: 7pt"><u>E</u></font><font size="1" style="font-size: 7pt">/(</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">/t)</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			=</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">/&lsquo;</font><font size="1" style="font-size: 7pt"><u>I</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">*t</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/d</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">
+			=</font><font face="Symbol"><font size="1" style="font-size: 7pt">b</font></font><font size="1" style="font-size: 7pt">
+			</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">b</font></font><font size="1" style="font-size: 7pt">
+			*</font><font face="Symbol"><font size="1" style="font-size: 7pt">l</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">Обратно
+			скорости изменения энерготока, при приложении напряжения.
+			<br>(напряжение*секунда/энерготок) </font></font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">*t=</font><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>I</u></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Индуктивность,
+			L=U*dt/dI, <br>В электростатике такой эффект не исследуется, так
+			как он причислен к электромагнетизму. Но, электрон обладает
+			массой, и этот эффект должен проявляться и в электростатике!</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">C</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">=U*dt/dI
+			= L (индуктивность), </font></font><font size="1" style="font-size: 7pt">(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Генри</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">=Вольт*секунда/Ампер
+			=Вольт*секунда</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/Кулон)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнитоиндуктивность
+			(индуктивность), </font></font><font size="1" style="font-size: 7pt">C</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">
+			=U*dt/dIm =0.5*E/Im</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			=U*t</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/d</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			, </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">Коэффициент
+			остаточной намагниченности или запаздывания магнитотока от
+			магнитонапряжения.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Потенциальная
+			энергия, запасенная в потенцио-энергоемкости</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=
+			</font><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>U</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/2,
+			<br>d</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=
+			</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*d</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			, </font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			, <br></font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">
+			- </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">разница
+			потенциальных равна кинетической (Джоуль)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=
+			C</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">*U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/2
+			- энергия, запасенная в конденсаторе</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=
+			C</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">*U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/2
+			- энергия, запасенная в конденсаторе</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=
+			C</font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">*U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/2
+			- энергия магнитного поля, запасенная в индуктивности, <br>(Джоуль
+			= Генри*Ампер</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">)</font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Кинетическая
+			энергия, запасенная в кинето-энергоемкости</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">=
+			</font><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">*(d</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">/dt)</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/2
+			= </font><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>I</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/2,
+			<br>d</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">=
+			d</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">j</font></font><font size="1" style="font-size: 7pt">
+			, <br></font><font face="Symbol"><font size="1" style="font-size: 7pt">D</font></font><font size="1" style="font-size: 7pt">
+			</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">
+			- </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">разница
+			потенциальных равна кинетической (Джоуль)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">=
+			C</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">*I</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/2
+			- энергия, запасенная в массе потока электронов (как и в энергии
+			инерции)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">=
+			C</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">*I</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/2
+			- энергия, запасенная в индуктивности</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">=
+			C</font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">*Im</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/2
+			- </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">энергия
+			остаточного намагничивания, энергия магнитного поля постоянного
+			магнита.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Энергия
+			сопротивления, </font></font>
+			</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">=
+			</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>Q</u></font><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>R</u></font><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>Q</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			= t*</font><font size="1" style="font-size: 7pt"><u>I</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>R</u></font><font size="1" style="font-size: 7pt">
+			= t*</font><font size="1" style="font-size: 7pt"><u>U</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>R</u></font><font size="1" style="font-size: 7pt">,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(Джоуль)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">E<sub>R</sub>= U*q=R*q<sup>2</sup>
+			= t*I<sup>2</sup>*R</font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">E<sub>R</sub>= U*q=R*q<sup>2</sup>
+			= t*I<sup>2</sup>*R</font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font size="1" style="font-size: 7pt">E</font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">=U*</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			=R*</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			=t*Im</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">*R
+			=t*U</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">/R,
+			энергия, затрачиваемая на преодоление магнитосопротивления.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Мощность
+			- от энергии преобразования (E</font></font><sub><font size="1" style="font-size: 7pt">I</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">и
+			E</font></font><sub><font size="1" style="font-size: 7pt">R</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">)
+			или изменения потенциальной (dE</font></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">)
+			за время</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt"><u>Р</u></font></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">/t,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><u>Р</u></font></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">/t,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><u>Р</u></font></font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>E</u></font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">/t
+			= </font><font size="1" style="font-size: 7pt"><u>R</u></font><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>I</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u>U</u></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">/</font><font size="1" style="font-size: 7pt"><u>R</u></font><font size="1" style="font-size: 7pt">
+			= </font><font size="1" style="font-size: 7pt"><u><br>P</u></font><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>U</u></font><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>I
+			</u></font><font size="1" style="font-size: 7pt"><br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Ватт</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Джоуль/секунда)</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Р</font></font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">=E</font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">/t
+			=U*Q/t = U*I = I</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">*R
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(Ватт
+			= Ампер*Вольт = Джоуль/секунда)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Р</font></font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">=E</font><sub><font size="1" style="font-size: 7pt">R</font></sub><font size="1" style="font-size: 7pt">/t
+			=U*q/t = U*I = I</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">*R
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(Ватт
+			= Ампер*Вольт = Джоуль/секунда)</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Мощность,
+			</font></font><font size="1" style="font-size: 7pt">P = U*Im,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">(Ватт=Вебер</font></font><font size="1" style="font-size: 7pt">*</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">Ампер/сек)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p>&nbsp;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Связь
+			с другими видами энергий</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p>&nbsp;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Ёмкость.
+			<br>Величины, входящие в формулу ёмкости устанавливают связь с
+			другими видами энергий. Так что энергии можно преобразовывать меж
+			друг другом.</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">C=</font><font face="Symbol"><font size="1" style="font-size: 7pt">e</font></font><font size="1" style="font-size: 7pt">
+			</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">e</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">*S,
+			где </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">e</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><sub><font size="1" style="font-size: 7pt">0</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			электрическая постоянная; </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">e</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			- диэлектрическая проницаемость среды, зависит от температуры,
+			плотности, прочих показателей среды, от длинны воздушного зазора;
+			</font></font><font size="1" style="font-size: 7pt">S</font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			площадь поверхности конденсатора, зависит от расстояния</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">.</font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Изменение
+			индуктивности по любому параметру</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Индуктивность.
+			<br>Величины, входящие в формулу ёмкости устанавливают связь с
+			другими видами энергий. Так что энергии можно преобразовывать меж
+			друг другом.</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">L=</font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font size="1" style="font-size: 7pt">
+			</font><sub><font size="1" style="font-size: 7pt">0</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font size="1" style="font-size: 7pt">
+			*S*w</font><sup><font size="1" style="font-size: 7pt">2</font></sup><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			где </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><sub><font size="1" style="font-size: 7pt">0</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			магнитная постоянная; </font></font><font face="Symbol"><font size="1" style="font-size: 7pt">m</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			- магнитная проницаемость среды, зависит от свойств среды, от
+			длинны немагнитного зазора; </font></font><font size="1" style="font-size: 7pt">S</font>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			площадь сечения магнитного потока, зависит от расстояния</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">;
+			w </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			число витков обмотки.</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Изменение
+			по любому параметру</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Напряженность
+			поля</font></font><font size="1" style="font-size: 7pt">. </font><font face="Times New Roman"><font size="1" style="font-size: 7pt">здесь
+			связь с основным видом энергии.</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Напряженность
+			поля созданного зарядом q на расстоянии r, E=k*q/r</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">,
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">То
+			есть здесь связь с расстоянием, силовые линии</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Напряженность
+			магнитного поля, H=</font></font><font size="1" style="font-size: 7pt">U</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">/h,
+			(Ампер/метр)</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Плотность
+			поля</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Поток
+			напряженности E через поверхность S, N=E*S</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p>&nbsp;</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Плотность
+			действия</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p>&nbsp;</p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Плотность
+			тока, j = I/S (Ампер/метр</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">)</font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Магнитная
+			индукция, плотность магнитотока B=Im*t/S</font></font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			</font></font><font size="1" style="font-size: 7pt">=</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			/S</font><font face="Symbol"><font size="1" style="font-size: 7pt">S</font></font><font size="1" style="font-size: 7pt">
+			<br>(</font><font face="Times New Roman"><font size="1" style="font-size: 7pt"><b>Тесла</b></font></font><font face="Times New Roman"><font size="1" style="font-size: 7pt">
+			= Вебер/метр</font></font><sup><font size="1" style="font-size: 7pt">2</font></sup><font size="1" style="font-size: 7pt">)</font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="16%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">Преобразование
+			в другие виды энергий</font></font><font size="1" style="font-size: 7pt">.</font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt"><u>A</u></font><sub><font size="1" style="font-size: 7pt">1</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>U</u></font><sub><font size="1" style="font-size: 7pt">1</font></sub><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>Q</u></font><sub><font size="1" style="font-size: 7pt">1
+			</font></sub><font size="1" style="font-size: 7pt"><u><br>A</u></font><sub><font size="1" style="font-size: 7pt">2</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>U</u></font><sub><font size="1" style="font-size: 7pt">2</font></sub><font size="1" style="font-size: 7pt">*</font><font size="1" style="font-size: 7pt"><u>Q</u></font><sub><font size="1" style="font-size: 7pt">2
+			</font></sub><font size="1" style="font-size: 7pt"><u><br>A</u></font><sub><font size="1" style="font-size: 7pt">1</font></sub><font size="1" style="font-size: 7pt">=</font><font size="1" style="font-size: 7pt"><u>A</u></font><sub><font size="1" style="font-size: 7pt">2
+			</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">Еще
+			для всех видов энергий, у которых величина из </font></font><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">U</font></sub><font size="1" style="font-size: 7pt">,
+			</font><font size="1" style="font-size: 7pt"><u>C</u></font><sub><font size="1" style="font-size: 7pt">I</font></sub><font size="1" style="font-size: 7pt">,
+			</font><font size="1" style="font-size: 7pt"><u>R</u></font> <font face="Times New Roman"><font size="1" style="font-size: 7pt">есть
+			в формуле другой энергии.</font></font></p>
+		</td>
+		<td width="20%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font face="Times New Roman"><font size="1" style="font-size: 7pt">q*U=h*F
+			(энергия переноса заряда от одного потенциала к другому равна
+			расстоянию переноса на силу действующую на заряд)</font></font></p>
+		</td>
+		<td width="19%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0cm">
+			<p><font size="1" style="font-size: 7pt">q*U=U</font><sub><font size="1" style="font-size: 7pt">m</font></sub><font size="1" style="font-size: 7pt">*</font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			</font><font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			энергия магнетизма (Ампер*Вебер).</font></font></p>
+		</td>
+		<td width="25%" style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.19cm; padding-left: 0.19cm; padding-right: 0.19cm">
+			<p><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			=L*I <br></font><font face="Symbol"><font size="1" style="font-size: 7pt">Y</font></font><font size="1" style="font-size: 7pt">
+			*U=q</font><sub><font size="1" style="font-size: 7pt">E</font></sub><font size="1" style="font-size: 7pt">*U</font><sub><font size="1" style="font-size: 7pt">E</font></sub><font face="Times New Roman"><font size="1" style="font-size: 7pt">,
+			где q</font></font><sub><font size="1" style="font-size: 7pt">E</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			электрозаряд, </font></font><font size="1" style="font-size: 7pt">U</font><sub><font size="1" style="font-size: 7pt">E</font></sub>
+			<font face="Times New Roman"><font size="1" style="font-size: 7pt">-
+			электронапряжение.</font></font></p>
+		</td>
+	</tr>
+</table>
+<p><a href="main_physics"><u>назад в статью &quot;Обобщенные законы физики&quot;</u></a></p>
+
+{{=f}}
+
+</div>

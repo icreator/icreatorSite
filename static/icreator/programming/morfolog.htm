@@ -1,0 +1,155 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Логическое программирование</TITLE>
+</HEAD>
+<BODY BGCOLOR="#cdc6a7">
+
+<FONT FACE="Courier New"><P>Компьютерный морфологический разбор слов русского языка.</P>
+<P><BR>
+Ермолаев Д.С., Москва, </FONT><A HREF="http://www.icreator.ru/index.htm"><U><FONT FACE="Courier New" SIZE=1 COLOR="#0000ff">www.icreator.ru</U></FONT></A></P>
+<FONT FACE="Courier New" SIZE=2><P>Ключевые слова. Разбор текста на русском языке компьютером. Интерфейсы на естественном языке. Морфологический разбор слов. Морфология слов русского языка. Интеллектуальный поиск текстов.</P>
+</FONT><FONT FACE="Courier New">Применение данной статьи важно для тех, кто хочет сделать интерфейс к своей программе на естественном языке или сделать интеллектуальный поиск информации. Для этого нужно в первую очередь сделать морфологический анализ слов текста. Тогда не нужно будет иметь обширный словарь слов в разных словоформах. Достаточно запомнить основное слово в словаре, а входной поток слов подвергать морфологическому анализу, с тем, чтобы все слова преобразовать к начальным словоформам. Пример. пользователь ввел в базу знаний свою информацию "фирма РиК. наша фирма продает тару картонную". Модуль морфологического разбора преобразует эту информацию к следующему виду: "фирма. РиК. мой фирма продать тара картонный". С точки зрения смысла получилась бессмыслица. Но для компьютера - самый раз, это будет видно дальше. Теперь,</FONT> <FONT FACE="Courier New">другой пользователь вводит для поисковой системы запрос "продаём тару картонную". Этот запрос будет так же преобразован в "продать тара картонный". И теперь исполнив простой поиск по совпадению, система поиска выдаст ранее запомненную информацию: "фирма Рик. продать...". Однако здесь было бы лучше запомнить первоначальную информацию клиента с правильными словоформами и выдать только её.<BR>
+Морфология слов русского языка определяется по аффиксу - окончанию и суффиксу слова. Назовем это правило правилом морфологического разбора. Однако есть слова, которые имеют окончание, подходящее для некоторой формы слова, но являются совершенно другой формой. Например, "-ать" говорит что слово есть глагол (прыгать, бежать). Но есть слово "кровать", которое есть существительное. Значит, из правила морфологического разбора есть исключения. Так же есть слова, которые не изменяют свою форму. Например, предлоги, "не", наречия, "столь" и т.д. Значит, есть дополнения к правилу морфологического разбора. Эти дополнения можно представить как исключения из правила. Таким образом, мы пришли к определенному логическому описанию морфологического разбора слов. Программ для компьютера должна выполнять всего два правила: а)поиск слова как "неправильного", иначе, б) поиск аффикса слова в базе аффиксов. Здесь я привожу два примера реализации морфологического разбора на логических языках. Для создания компьютерной программы лучше всего подойдут логические языки ПРОЛОГ и РЕФАЛ.<BR>
+Пример программы морфологического разбора слов на логическом языке программирования ПРОЛОГ.
+</FONT>
+<PRE>------------------------------------
+<FONT FACE="Courier New" COLOR="#008000">/* программа по распознаванию морфологии слов русского языка */
+/* по окончанию слова */
+/* язык программирования ПРОЛОГ */
+</FONT>
+<B><FONT COLOR="#0000ff">domains
+</B></FONT><FONT FACE="Courier New">Слово = string
+</FONT>
+<B><FONT COLOR="#0000ff">predicates
+</B></FONT><FONT FACE="Courier New">морфология(Слово,Слово Основа)
+</FONT><FONT COLOR="#0000ff">nondeterm</FONT><FONT FACE="Courier New"> исключение(Слово,Слово Основа)
+</FONT><FONT COLOR="#0000ff">nondeterm</FONT><FONT FACE="Courier New"> правило(Слово Аффикс, Слово АффиксОсновы)
+</FONT><FONT COLOR="#0000ff">nondeterm</FONT><FONT FACE="Courier New"> аффикс(Слово Корень, Слово, Слово Аффикс)
+</FONT>
+<B><FONT COLOR="#0000ff">clauses
+</B></FONT><FONT FACE="Courier New" COLOR="#008000">/* отрывок и базы знаний по исключениям */
+/* исключения из правила разбора слова для "неправильных" слов */
+</FONT><FONT FACE="Courier New">исключение("рек","река"). исключение("сел","сесть"). 
+исключение("кровать","кровать").
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* отрывок из базы правил разбора для правильных слов */
+/* для глаголов */
+</FONT><FONT FACE="Courier New">правило("нули","ать"). правило("нул","ать"). 
+правило("еть","ать"). правило("ает","ать"). 
+правило("ал","ать"). правило("ул","ать"). 
+правило("ули","ать").
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* для прилагательных */
+</FONT><FONT FACE="Courier New">правило("вая","вый"). правило("вые","вый"). 
+правило("ая","ой"). правило("ие","ой"). 
+правило("ую","ой").
+</FONT>
+<FONT FACE="Courier New" COLOR="#008000">/* предикат осуществляющий перебор всех вариантов */
+/* аффиксов для этого слова */
+</FONT><FONT FACE="Courier New">аффикс("",Аффикс,Аффикс).
+аффикс(Корень,Слово,Аффикс):-
+&#9;frontchar(Слово,Буква,Слово1),
+&#9;аффикс(Корень1,Слово1,Аффикс),
+&#9;frontchar(Корень,Буква,Корень1).
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* сначала просмотри все исключения */
+</FONT><FONT FACE="Courier New">морфология(Слово,Осн):-
+&#9;исключение(Слово,Осн),!.
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* если не удачно, то переберем все аффиксы слова */
+</FONT><FONT FACE="Courier New">морфология(Слово,Осн):-
+&#9;аффикс(Корень,Слово,Аффикс),
+&#9;правило(Аффикс,АффиксиОсн),
+&#9;concat(Корень,АффиксиОсн,Осн),!.
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* если неудачно, то значит слово несклоняемо */
+</FONT><FONT FACE="Courier New">морфология(Слово,Слово):-!.
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* вызов предиката морфологического разбора */
+</FONT><B><FONT COLOR="#0000ff">Goal</B></FONT><FONT FACE="Courier New"> морфология("зеленую",Слово).
+Ответ ПРОЛОГА: Слово = "зеленый"</PRE>
+</FONT><FONT FACE="Courier New" SIZE=2><P>Как видно, в программе всего 13 строчек, а остальные строки это база знаний. Теперь посмотрим как справится с этой задачей РЕФАЛ.<BR>
+Пример на логическом языке программирования РЕФАЛ - 5:<BR>
+-----------------------</P>
+</FONT><PRE>
+<FONT FACE="Courier New" COLOR="#008000">/* программа по распознаванию морфологии слов руссского языка */
+/* по окончанию и приставке слова */
+/* язык программирования РЕФАЛ 5 */
+/* автор Ермолаев Д.С</FONT><FONT COLOR="#008000">. www.icreator.ru */
+</FONT><FONT FACE="Courier New" COLOR="#008000">/* ввод одного слова с консоли */
+</FONT>$ENTRY Go { =&#9;&lt;Prout &lt;Question (&lt;Card&gt;) &gt;&gt;; };
+<FONT FACE="Courier New" COLOR="#008000">/* таблица1. слова, которые имеют неправильное окончание */
+</FONT>WordsMissTable { =
+<FONT FACE="Courier New">&#9;( ('сел') 'сесть' )
+&#9;( ('рек') 'река' )
+&#9;( ('кровать') 'кровать' )
+&#9;( ('скоро') 'скоро' )
+</FONT>} ;
+<FONT FACE="Courier New" COLOR="#008000">/* таблица2. окончания, по которым можно определить основу */
+</FONT>CompletionTable { = 
+<FONT FACE="Courier New">&#9;&#9;/* для глаголов */
+&#9;( ('нули') 'ать')
+&#9;( ('нул') 'ать')
+&#9;( ('ает') 'ать')
+&#9;( ('еть') 'ать')
+&#9;( ('еч') 'ать')
+&#9;( ('ал') 'ать')
+&#9;( ('ел') 'ать')
+&#9;&#9;/* для прилагательных */
+&#9;( ('вые') 'вый')
+&#9;( ('вая') 'вый')
+&#9;( ('ая') 'ой')
+&#9;( ('ие') 'ой')
+&#9;( ('ую') 'ой')
+</FONT>};
+<FONT FACE="Courier New" COLOR="#008000">/* сама программа распознавания морфологической формы слова */
+</FONT>Question {
+<FONT FACE="Courier New" COLOR="#008000">/* берем слово и ищем подходящее по шаблону в таблице1 */
+</FONT>&#9;(e.Word), &lt;WordsMissTable&gt;: e.L((e.Word)e.Qst)e.R = e.Qst;
+<FONT FACE="Courier New" COLOR="#008000">/* иначе, берём окончание слова и ищем по шаблону в таблице2 */
+</FONT>&#9;(e.1 e.End), &lt;CompletionTable&gt;: e.L((e.End)e.Qst)e.R = e.1 e.Qst ;
+<FONT FACE="Courier New" COLOR="#008000">/* иначе, слово неизменяемо */
+</FONT>&#9;(e.1) = e.1;
+};</PRE>
+<FONT FACE="Courier New" SIZE=2><P>&#9;Программа на РЕФАЛЕ состоит из трех предложений! Отсюда наглядно видно, что если Вам не нужна максимальная скорость обработки и минимальный размер кода программы, а нужна скорость написания программы и простота ее отладки, то лучший вариант для задач обработки текста будет язык РЕФАЛ. Интересно, сколько бы предложений программы пришлось бы написать для решения такой задачи на алгоритмическом языке? Например на С++?<BR>
+Теперь немного о самих базах знаний. Описывать все слова-исключения не представляется возможным - это будет уже не статья, а настоящая база данных в несколько сот или тысяч записей. База знаний же по аффиксам так же здесь не описывается полностью по той причине, что любой русский человек без труда сможет ее составить сам. </P>
+</FONT><P><A HREF="morfolog_o.htm"><U><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">обсуждение</U></FONT></A></P>
+
+<P><A HREF="HTTP://icreator.ru/programming/"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A></P>
+
+<P><A HREF="HTTP://www.icreator.ru/index.htm"><U><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">на главную страницу</U></FONT></A><FONT FACE="Courier New" SIZE=2><BR>
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=269943"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=269943;t=180;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=15 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript></FONT><A HREF="http://top.mail.ru/jump?from=269943"><IMG SRC="http://top.list.ru/counter?js=na;id=269943;t=180" BORDER=0 WIDTH=88 HEIGHT=15 ALT="Рейтинг@Mail.ru"></A></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER--><!--begin of Top100--><A HREF="http://top100.rambler.ru/top100/"><IMG SRC="http://counter.rambler.ru/top100.cnt?290358" BORDER=0 WIDTH=1 HEIGHT=1 ALT="Rambler's Top100"></A><!--end of Top100 code-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";hotlog_d=document; hotlog_n=navigator;hotlog_rn=Math.random();
+hotlog_n_n=(hotlog_n.appName.substring(0,3)=="Mic")?0:1;
+hotlog_r=""+hotlog_rn+"&s=25682&im=26&r="+escape(hotlog_d.referrer)+"&pg="+
+escape(window.location.href);
+hotlog_d.cookie="hotlog=1"; hotlog_r+="&c="+(hotlog_d.cookie?"Y":"N");
+hotlog_d.cookie="hotlog=1; expires=Thu, 01-Jan-70 00:00:01 GMT"</script>
+<script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";hotlog_s=screen;
+hotlog_r+="&wh="+hotlog_s.width+'x'+hotlog_s.height+"&px="+((hotlog_n_n==0)?
+hotlog_s.colorDepth:hotlog_s.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+hotlog_d.write("<a href=http://click.hotlog.ru/?25682 target=_top><img "+
+"src=\"http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&\" border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=26" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog --></BODY>
+</HTML>

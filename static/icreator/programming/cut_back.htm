@@ -1,0 +1,191 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<TITLE>Механизм отката  и отсечений (mechanism of Backtracking and Cut) ПроЛога</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Courier New"><P>Механизм отсечений и отката(mechanism of Cuting and Backtracking) ПроЛога. Отличия ПроЛога от алгоритмичесих языков программирования.</P>
+</B></FONT><FONT FACE="Courier New" SIZE=2>
+<P>Автор Ермолаев Дмитрий Сергеевич </FONT><A HREF="http://www.icreator.ru/"><U><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">www.icreator.ru</U></FONT></A></P>
+</FONT></B>
+<B><FONT FACE="Courier New"><P>Способность выдавать несколько решений</P>
+</B></FONT><FONT FACE="Courier New" SIZE=2><P>Отличительной способностью ПроЛога является то, что при поиске решений на ПроЛоге выдается целый список подходящих значений. Поэтому, в ПроЛоге один предикат может быть представлен целым набором правил, каждое из которых может выдавать ответ. Пример. Пусть есть следующее описание предиката “число_больше”:</P>
+<PRE><FONT FACE="Courier New" SIZE=2>число_больше(А,3):-А&lt;3.
+<P>число_больше(А,5):-А&lt;5.
+<P>число_больше(А,8):-А&lt;8.</PRE>
+<P>Тогда вызов решателя ПроЛога</P>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff"><P>Goal</FONT><FONT FACE="Courier New" SIZE=2> число_больше(4,Больше).</P>
+<P>Выдаст ответы: Больше = 5, 8.</P>
+<a href="https://upbit.org/?ref=1059"><img src="https://upbit.org/assets/partner/banner-img/648_60_upbit.gif"></a><br>
+<P>Другими словами, согласно правилам в предикате “число_больше” больше числа 4 есть два числа 5 и 8. Здесь видно, что набор правил работает как структура ветвления case в алгоритмических языках. Предикаты которые могут выдавать несколько значений называются неопределенными  (nondeterm). Предикаты, которые выдают только одно значение, называются определенными (determ). Кроме неопределенных предикатов в ПроЛоге еще используют механизм неопределенности факты. Пример.</P>
+<PRE><FONT FACE="Courier New" SIZE=2>иметь(долги, плохо).
+<P>иметь(квартира, хорошо).
+<P>иметь(дети, хорошо).</PRE>
+<P>Тогда вызов решателя ПроЛога</P>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff"><P>Goal</FONT><FONT FACE="Courier New" SIZE=2> иметь(Что,хорошо).</P>
+<P>Ответ будет: Что = квартира, дети</P>
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><B><FONT FACE="Courier New"><P>Откат (Backtracking</FONT><FONT FACE="Courier New">)</P>
+</B></FONT><FONT FACE="Courier New" SIZE=2><P>Теперь введем понятие отката (Backtracking). Откат – это попытка ПроЛога найти следующий вариант решения задачи. Откат вызывается неудачей в некотором месте программы, что приводит ПроЛог к попытке найти следующее решение. Откатывание идет до места, где возможно вычислить другое решение. При этом все связанные переменные, которые были связаны ниже точки, где возможен другой вариант решения, освобождаются. При вызове решателя ПроЛога, откат создается самим ПроЛогом для выдачи всех значений решения. Пример.</P><PRE><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">database</FONT><FONT FACE="Courier New" SIZE=2> - знания
+иметь(string, string)</FONT>
+<FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">predicates</FONT><FONT FACE="Courier New" SIZE=2>
+показать(string)
+<FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">clauses</FONT><FONT FACE="Courier New" SIZE=2>
+показать(Как):-
+<FONT FACE="Courier New" SIZE=2 COLOR="#008000">% здесь переменная Что будет каждый раз освобождаться и
+% связываться с новым значением</FONT><FONT FACE="Courier New" SIZE=2>
+	иметь(Что,Как),
+	nl,write(Что," иметь ",Как).
+<FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">Goal</FONT>
+<FONT FACE="Courier New" SIZE=2 COLOR="#008000">% загрузим знания с фактами иметь() из файла знания.txt</FONT><FONT FACE="Courier New" SIZE=2>
+	consult("знания.txt",знания),</FONT>
+<FONT FACE="Courier New" SIZE=2 COLOR="#008000">% вызовем предикат выдающий несколько вариантов ответа</FONT>
+	показать(хорошо).
+Ответы ПроЛога:
+	квартира иметь хорошо
+	дети иметь хорошо</PRE>
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><B><FONT FACE="Courier New"><P>Отсечение (Cut)</P>
+</B></FONT><FONT FACE="Courier New" SIZE=2><P>Теперь введем понятие отсечения. Отсечением в ПроЛоге называется механизм, который запрещает перебор правил данного предиката находящихся ниже текущего правила и запрещает механизм отката. Отсечение обозначается знаком “!”. Пример. Если переписать предыдущий предикат “число_болше” как:</P>
+<PRE><FONT FACE="Courier New" SIZE=2>
+число_больше(А,3):-А&lt;3,
+	!.
+число_больше(А,5):-А&lt;5,
+	!.
+число_больше(А,8):-А&lt;8,
+	!.</PRE>
+</FONT><FONT FACE="Courier New" SIZE=2><P>Тогда вызов решателя ПроЛога</P>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff"><P>Goal</FONT><FONT FACE="Courier New" SIZE=2> число_больше(4,Больше).</P>
+<P>Выдаст ответ: Больше = 5.</P>
+</FONT><FONT FACE="Courier New" SIZE=2>Это происходит потому, что в каждом правиле предиката, после проверки на больше, идет оператор отсечения "!", что запрещает ПроЛогу последующий откат и поиск других вариантов ответа.
+</FONT><B><FONT FACE="Courier New"><P>Пример использования механизма отката и отсечений.</P>
+</B></FONT><FONT FACE="Courier New" SIZE=2><P>Механизм отката и отсечений можно рассмотреть на следующем примере. Допустим у нас есть список значений, в котором нужно найти некое значение и выдать стоящее перед ним значение. Так как ПроЛог это логический язык, то поставленная задача решается с помощью создания набора правил:</P>
+<OL>
+
+<LI>При переборе списка, если текущий элемент не является искомым значением, то делаем перебор далее.</LI>
+<LI>При переборе списка, если текущий элемент является искомым значением, то прекратим перебор и вернемся на предыдущий элемент.</LI>
+<LI>Если предыдущие правила не сработали, то выдать текущий элемент как предыдущее значение.</LI></OL>
+<P>Описание на языке ПроЛог предиката выполняющего эти правила будет такое:</P>
+<PRE><FONT FACE="Courier New" SIZE=2>1. найти_пред_значение(Значение,[Элемент|Список], Предыдущее):-
+	not(Значение=Элемент),
+	!, </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение перебора правил предиката, расположенных ниже
+</FONT><FONT FACE="Courier New" SIZE=2>	найти_пред_значение(Значение,Список,Предыдущее),
+	!.
+2. найти_пред_значение(Значение,[Значение|_],_):-
+	!,</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение перебора правил предиката, расположенных ниже
+</FONT><FONT FACE="Courier New" SIZE=2><P>	fail.
+3. найти_пред_значение(_,[Предыдущее|_],Предыдущее):- !.
+</PRE></FONT><FONT FACE="Courier New" SIZE=2><P>Зная, что в ПроЛоге можно использовать порядок расположения правил как способ выбора последовательности обхода правил, и зная действие механизма отсечений, можно переставить правила 1 и 2 местами и убрать проверку на несовпадение. Тогда получим следующее описание предиката:</P>
+</FONT>
+<PRE><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">domains
+</FONT><FONT FACE="Courier New" SIZE=2>Номер = </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">integer
+</FONT><FONT FACE="Courier New" SIZE=2>НСписок = Номер*
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">predicates
+</FONT><FONT FACE="Courier New" SIZE=2>найти_пред_значение(Номер Значение, НСписок, Номер Предыдущее)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">clauses
+</FONT><FONT FACE="Courier New" SIZE=2>найти_пред_значение(Значение,[Значение|_],_):-
+	!,</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение перебора правил предиката, расположенных ниже
+</FONT><FONT FACE="Courier New" SIZE=2>	fail.
+найти_пред_значение(Значение,[_|Список], Предыдущее):-
+	найти_пред_значение(Значение,Список,Предыдущее),
+	!.</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение выдачи других ответов
+</FONT><FONT FACE="Courier New" SIZE=2>найти_пред_значение(_,[Предыдущее|_],Предыдущее):-
+	!.</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение выдачи других ответов</P>
+</FONT></PRE>
+<FONT FACE="Courier New" SIZE=2><P>Полученное описание состоит из трех правил и выполняет следующие действия. Первое правило сравнивает текущий элемент с искомым значением, и если они равны, то происходит а) отсечение правил предиката расположенных ниже от участия в поиске, б) вызывается неудача, что приводит к останову рекурсии. Второе правило делает перебор всех элементов списка с помощью вызова самой себя, то есть вызывает рекурсию. При этом, в правиле до вызова рекурсии нет отсечений, и если вызов рекурсии будет неуспешным, то управление перейдет на правило предиката, расположенное ниже. Если вызов рекурсии будет успешен, то вызывается отсечение ("!"), а потом выход из предиката. Третье правило выдает текущий элемент как предыдущее значение, которое стоит перед искомым значением, вызывает отсечение и выход из предиката. Действие предиката рассмотри на примере. Дадим решателю ПроЛога строку:</P>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff"><P>Goal</FONT><FONT FACE="Courier New" SIZE=2> найти_пред_значение(3,[1,2,4,3,5,2],Предыдущее).</P>
+<P>ПроЛог делает первый вызов предиката:</P>
+<OL>
+
+<LI>Правило 1 не срабатывает: 3 не равно 1. Переход на второе правило:</LI>
+<LI>Правило 2 вызывает рекурсию найти_пред_значение(3,[2,4,3,5,2],Предыдущее):</LI>
+<OL>
+
+<LI>Правило 1 не срабатывает: 3 не равно 2. Переход на второе правило:</LI>
+<LI>Правило 2 вызывает рекурсию найти_пред_значение(3,[4,3,5,2],Предыдущее):</LI>
+<OL>
+
+<LI>Правило 1 не сработает: 3 не равно 4. Переход на второе правило:</LI>
+<LI>Правило 2 вызывает рекурсию: найти_пред_значение(3,[3,5,2],Предыдущее):</LI>
+<OL>
+
+<LI>Первое правило сработает: 3=3. и выполняется: отсечение правил предиката ниже и неудача. Что приводит в выходу из рекурсии с результатом неудачи.</LI></OL>
+
+<LI>Продолжение правила 2. Неудача вызова рекурсии со списком [3,5,2] приводит к неудаче второго правила на данном уровне. ПроЛог переходит на третье правило.</LI>
+<LI>Правило 3. Здесь список = [4,3,5,2]. Происходят действия: Предыдущее унифицируется с 4, выход с отсечением других возможных решений.</LI>
+<LI>Продолжение правила 2. Рекурсия возвращает удачное значение Предыдущее =4. Происходит выход с отсечением других возможных решений.</LI></OL>
+
+<LI>Продолжение правила 2. Рекурсия возвращает удачное значение Предыдущее =4. Происходит выход с отсечением других возможных решений.</LI></OL>
+
+<LI>Продолжение правила 2. Рекурсия возвращает удачное значение Предыдущее =4. Происходит выход с отсечением других возможных решений.</LI></OL>
+
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2><P>Ответ ПроЛога Предыдущее = 4.</P>
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2><P>Теперь посмотрим что будет, если убрать</FONT><FONT FACE="Courier New" SIZE=2> </FONT><FONT FACE="Courier New" SIZE=2>отсечение во втором правиле:</P>
+</FONT>
+<PRE><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">domains
+</FONT><FONT FACE="Courier New" SIZE=2>Номер = </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">integer
+</FONT><FONT FACE="Courier New" SIZE=2>НСписок = Номер*
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">predicates
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% обявляем что предикат неопределенный
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> найти_пред_значение(Номер Значение, НСписок, Номер Предыдущее)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">clauses
+</FONT><FONT FACE="Courier New" SIZE=2>найти_пред_значение(Значение,[Значение|_],_):-
+</FONT><FONT FACE="Courier New" SIZE=2>	!,</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение перебора правил предиката, расположенных ниже
+</FONT><FONT FACE="Courier New" SIZE=2>	fail.
+найти_пред_значение(Значение,[_|Список], Предыдущее):-
+<FONT FACE="Courier New" SIZE=2 COLOR="#008000">% в этом правиле нет ни одного отсечения
+% что указывает на возможность отката в это место
+% для выбора следующего варианта ответа
+</FONT>	найти_пред_значение(Значение,Список,Предыдущее).
+найти_пред_значение(_,[Предыдущее|_],Предыдущее):-
+	!.</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#008000">% отсечение выдачи других ответов
+</FONT></PRE><FONT FACE="Courier New" SIZE=2>
+То ПроЛог уже выдаст несколько результатов</FONT><FONT FACE="Courier New" SIZE=2>:</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>Предыдущее = 4, 2, 1.</P>
+<P>Это становится возможным, так как включается механизм отката ПроЛога и во втором правиле появляется возможность выдать ответ на каждом шаге рекурсии.</P></FONT>
+
+<P><A HREF="HTTP://icreator.ru/programming/"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A></P>
+<P><A HREF="HTTP://www.icreator.ru/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">на главную страницу</U></FONT></A> </P>
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=269943"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=269943;t=180;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=15 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><A HREF="http://top.mail.ru/jump?from=269943"><IMG SRC="http://top.list.ru/counter?js=na;id=269943;t=180" BORDER=0 WIDTH=88 HEIGHT=15 ALT="Рейтинг@Mail.ru"></A></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";hotlog_d=document; hotlog_n=navigator;hotlog_rn=Math.random();
+hotlog_n_n=(hotlog_n.appName.substring(0,3)=="Mic")?0:1;
+hotlog_r=""+hotlog_rn+"&s=25682&im=26&r="+escape(hotlog_d.referrer)+"&pg="+
+escape(window.location.href);
+hotlog_d.cookie="hotlog=1"; hotlog_r+="&c="+(hotlog_d.cookie?"Y":"N");
+hotlog_d.cookie="hotlog=1; expires=Thu, 01-Jan-70 00:00:01 GMT"</script>
+<script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";hotlog_s=screen;
+hotlog_r+="&wh="+hotlog_s.width+'x'+hotlog_s.height+"&px="+((hotlog_n_n==0)?
+hotlog_s.colorDepth:hotlog_s.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+hotlog_d.write("<a href=http://click.hotlog.ru/?25682 target=_top><img "+
+"src=\"http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&\" border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=26" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog -->
+</BODY>
+</HTML>

@@ -1,0 +1,484 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<TITLE>Решение головоломки "Who has a fish?" или "Кто имеет рыбу?" на ПРОЛОГе.</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Courier New"<P>Решение головоломки "Who has a fish?" или "Кто имеет рыбу?" на ПРОЛОГе.</P>
+</B><P>Автор Ермолаев Дмитрий Сергеевич </FONT><A HREF="http://www.icreator.ru/"><U><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">www.icreator.ru</U></FONT></A></P>
+<FONT FACE="Courier New"><P>
+Есть головоломка, которую придумал А. Эйнштейн. Он утверждал, что эту задачу способны решить лишь 2% людей. На сайте <A HREF="http://www.refal.net/~korlukov/pearls/ryba/"><U><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">головоломка "Рыба"</U></FONT></A> предлагается программа, написанная на РЕФАЛе, которая решает эту задачу за 1 час 30 минут. Там же сказано, что 2% людей решают эту задачу примерно за это же время. Меня заинтриговало, а вхожу ли я в эти 2%. Посмотрел условия, засек время, и… 25минут ушло на решение задачи. Интересно, а сколько будет думать компьютер? Сделал программу на ПРОЛОГе, запустил… устал ждать. Я не смог даже проверить - верно ли она работает? Прочитав сайт внимательно, я понял - что простым перебором это будет очень долго. А почему же я решил гораздо быстрее?  Я стал анализировать ход своих мыслей при решении головоломки. И тогда по подобию своих мыслей создал алгоритм, а затем и саму программу на ПРОЛОГе, решающую такую задачу. Создание программы заняло целый день. Зато решение она выдавала за 0,5 секунд!</P>
+Условия задачи.<BR>
+1. Есть 5 домов каждый разного цвета.<BR>
+2. В каждом доме живет один человек, отличающийся от соседнего по национальности: немец, англичанин, швед, датчанин, норвежец. <BR>
+3. Каждый пьет только один определенный напиток, курит определенную марку сигарет и держит определенное животное. <BR>
+4. Никто из 5 человек не пьет одинаковые с другими напитки, не курит одинаковые сигареты и не держит одинаковое животное.<BR> 
+Вопрос: кому принадлежит рыба? <BR>
+Подсказки: <BR>
+1. Англичанин живет в красном доме. <BR>
+2. Швед держит собаку.<BR>
+3. Датчанин пьет чай. <BR>
+4. Зеленый дом стоит слева от белого. <BR>
+5. Жилец зеленого дома пьет кофе. <BR>
+6. Человек, который курит Pall Mall, держит птицу. <BR>
+7. Жилец из среднего дома пьет молоко. <BR>
+8. Жилец из желтого дома курит Dunhill. <BR>
+9. Норвежец живет в первом доме. <BR>
+10. Курильщик Marlboro живет около того, кто держит кошку. <BR>
+11. Человек, который держит лошадь, живет около того, кто курит Dunhill. <BR>
+12. Курильщик сигарет Winfield пьет пиво. <BR>
+13. Норвежец живет около голубого дома. <BR>
+14. Немец курит Rothmans. <BR>
+15. Курильщик Marlboro живет по соседству с человеком, который пьет воду. <BR>
+ Ниже приводится программа для решения головоломки.
+<PRE>
+<FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">/* 
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">&#9;пример решения головоломки
+&#9;кто имеет рыбу? (Who has a fish?)
+Автор: Ермолаев Д.С. www.icreator.ru
+есть пять разноцветных домов, в которых живут разные люди, которые пьют разные напитки
+и которые имеют разных животных и которые курят разные сигареты.
+нужно ответить на вопрос имея 15 подсказок
+Кто имеет рыбу?
+Здесь приведен способ ускоренного поиска решения.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">*/
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">domains
+</FONT><FONT FACE="Courier New" SIZE=2>Цвет = желтый; голубой; красный; зеленый; белый
+НомерДома = первый; второй; третий; четвертый; пятый
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% reference - здесь указывает на возможность работы с неопределенными значениями
+</FONT><FONT FACE="Courier New" SIZE=2>ПризнакДома= </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">reference</FONT><FONT FACE="Courier New" SIZE=2> признак(Цвет, НомерДома) 
+Национальность = норвежец; датчанин; англичанин; немец; швед
+Напиток = вода; чай; молоко; кофе; пиво
+Сигареты = dunhill; marlboro; pall_mall; rothmans; winfield
+Животное = кот; лошадь; птица; рыба; собака
+Дом = </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">reference</FONT><FONT FACE="Courier New" SIZE=2> дом(ПризнакДома, Национальность, Напиток, Сигареты, Животное)
+Дома = </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">reference</FONT><FONT FACE="Courier New" SIZE=2> Дом*
+Значение = ц(Цвет); нд(НомерДома); нц(Национальность); нп(Напиток); сг(Сигареты); жв(Животное)
+Значения = Значение*
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">predicates
+nondeterm</FONT><FONT FACE="Courier New" SIZE=2> цвет(Цвет)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> национальность(Национальность)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> напиток(Напиток)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> сигареты(Сигареты)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> животное(Животное)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> дом(Номер, ПризнакДома, Национальность, Напиток, Сигареты, Животное)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> дом_наобум(ПризнакДома, Национальность, Напиток, Сигареты, Животное)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> условие(Номер, Дом,Дома)
+условия_не_нарушены(Номер, Дом,Дома)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% без учета "слева"-"справа"
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> дома_рядом(Дома,Дом, Дом Рядом)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% с учетом "слева"-"справа"
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> дома_прилегают(Дома,Дом, Дом Рядом)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> рядом(НомерДома, НомерДома)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> прилегает(НомерДома Слева, НомерДома Справа)
+дом_неуникален1(Дом, Дом)
+дом_неуникален(Дом, Дома)
+сверить_значения(Дом, Значения, Дом, Значения)
+значение_связано(Значение)
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">clauses
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">определение возможных значений
+% явное определение помогает на этапе отладки
+% отловить ошибки в значениях
+</FONT><FONT FACE="Courier New" SIZE=2>цвет(желтый). цвет(голубой). цвет(красный). цвет(зеленый). цвет(белый).
+национальность(норвежец). национальность(датчанин). национальность(англичанин). национальность(немец). национальность(швед).
+напиток(вода). напиток(чай). напиток(молоко). напиток(кофе). напиток(пиво).
+сигареты(dunhill). сигареты(marlboro). сигареты(pall_mall). сигареты(rothmans). сигареты(winfield).
+животное(кот). животное(лошадь). животное(птица). животное(рыба). животное(собака).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% основные условия</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff"> </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">задачи
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%1. в красном доме живет англичанин.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(1,признак(красный,_),англичанин,_,_,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%2. швед содержит собаку.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(2,_,швед,_,_,собака).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%3. датчанин пьет чай.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(3,_,датчанин,чай,_,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%5. жилец зеленого дома пьет кофе.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(5,признак(зеленый,_),_,кофе,_,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%6. тот кто курит Pall Mall содержит птицу.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(6,_,_,_,pall_mall,птица).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%7. кто живет в среднем (третьем) доме пьет молоко.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(7,признак(_,третий),_,молоко,_,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%8. тот кто живет в желтом доме курит Dunhill.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(8,признак(желтый,_),_,_,dunhill,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%9. в первом доме живет норвежец.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(9,признак(_,первый),норвежец,_,_,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%12 курильщик сигарет Winfield пьет пиво.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(12,_,_,пиво,winfield,_).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%14 германец курит Rothmans.
+</FONT><FONT FACE="Courier New" SIZE=2>дом(14,_,немец,_,rothmans,_).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% это условие - что можно взять любое значение - если оно еще не связано
+</FONT><FONT FACE="Courier New" SIZE=2>дом_наобум(признак(Цвет,_),Нац,Нап,Сиг,Жив):-
+&#9;цвет(Цвет),национальность(Нац),напиток(Нап),сигареты(Сиг),животное(Жив).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% условия-зависимости, здесь проверка делается сразу для обоих домов
+%4. зеленый дом находится слева от белого
+</FONT><FONT FACE="Courier New" SIZE=2>условие(4,ДомЗеленый,Дома):-
+&#9;ДомЗеленый=дом(признак(зеленый,_),_,_,_,_),
+&#9;not(дом_неуникален(ДомЗеленый,Дома)),
+&#9;дома_прилегают(Дома,ДомЗеленый,ДомБелый),
+&#9;ДомБелый=дом(признак(белый,_),_,_,_,_),
+&#9;not(дом_неуникален(ДомБелый,Дома)).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%10. тот, кто курит Marlboro живет рядом с тем, кто содержит кота.
+</FONT><FONT FACE="Courier New" SIZE=2>условие(10,Дом,Дома):-Дом=дом(_,_,_,marlboro,_),
+&#9;not(дом_неуникален(Дом,Дома)),
+&#9;дома_рядом(Дома,Дом,ДомРядом),
+&#9;ДомРядом=дом(_,_,_,_,кот),
+&#9;not(дом_неуникален(ДомРядом,Дома)).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%11. тот кто имеет лошадь живет рядом с тем кто курит Dunhill.
+</FONT><FONT FACE="Courier New" SIZE=2>условие(11,Дом,Дома):-Дом=дом(_,_,_,_,лошадь),
+&#9;not(дом_неуникален(Дом,Дома)),
+&#9;дома_рядом(Дома,Дом,ДомРядом),
+&#9;ДомРядом=дом(_,_,_,dunhill,_),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;not(</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален(ДомРядом,Дома)).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%13 норвежец живет рядом с голубым домом.
+</FONT><FONT FACE="Courier New" SIZE=2>условие(13,Дом,Дома):-Дом=дом(_,норвежец,_,_,_),
+&#9;not(дом_неуникален(Дом,Дома)),
+&#9;дома_рядом(Дома,Дом,ДомРядом),
+&#9;ДомРядом=дом(признак(голубой,_),_,_,_,_),
+&#9;not(дом_неуникален(ДомРядом,Дома)).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%15 Курильщик Marlboro живет по соседству с человеком, который пьет воду.
+</FONT><FONT FACE="Courier New" SIZE=2>условие(15,Дом,Дома):-Дом=дом(_,_,_,marlboro,_),
+&#9;not(дом_неуникален(Дом,Дома)),
+&#9;дома_рядом(Дома,Дом,ДомРядом),
+&#9;ДомРядом=дом(_,_,вода,_,_),
+&#9;not(дом_неуникален(ДомРядом,Дома)).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% условие для доступа к простым фактам
+</FONT><FONT FACE="Courier New" SIZE=2>условие(Ном,Дом,Дома):-
+&#9;дом(Ном,П,Нац,Нап,Сиг,Жив),
+&#9;Дом=дом(П,Нац,Нап,Сиг,Жив),
+&#9;not(дом_неуникален(Дом,Дома)).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% теперь условия для проверки правильности
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% условия-зависимости, здесь проверка делается сразу для обоих домов
+% здесь находится именно не выполненное условие 
+% так чтобы все условия проверялись
+% 4. зеленый дом находится слева от белого
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(4,ДомЗеленый,Дома):-
+&#9;ДомЗеленый=дом(признак(Цвет,_),_,_,_,_),
+&#9;bound(Цвет),
+&#9;Цвет=зеленый,
+&#9;ДомБелый=дом(признак(белый,_),_,_,_,_),
+&#9;not(дома_прилегают(Дома,ДомЗеленый,ДомБелый)),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%10. тот, кто курит Marlboro живет рядом с тем, кто содержит кота.
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(10,Дом,Дома):-Дом=дом(_,_,_,Сиг,_),
+&#9;bound(Сиг),
+&#9;Сиг=marlboro,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;</FONT><FONT FACE="Courier New" SIZE=2>ДомРядом=дом(_,_,_,_,кот),
+&#9;not(дома_рядом(Дома,Дом,ДомРядом)),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%11. тот кто имеет лошадь живет рядом с теем кто курит Dunhill.
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(11,Дом,Дома):-Дом=дом(_,_,_,_,Жив),
+&#9;bound(Жив),
+&#9;Жив=лошадь,
+&#9;ДомРядом=дом(_,_,_,dunhill,_),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;not(</FONT><FONT FACE="Courier New" SIZE=2>дома_рядом(Дома,Дом,ДомРядом)),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%13 норвежец живет рядом с голубым домом.
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(13,Дом,Дома):-Дом=дом(_,Нац,_,_,_),
+&#9;bound(Нац),
+&#9;Нац=норвежец,
+&#9;ДомРядом=дом(признак(голубой,_),_,_,_,_),
+&#9;not(дома_рядом(Дома,Дом,ДомРядом)),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%15 Курильщик Marlboro живет по соседству с человеком, который пьет воду.
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(15,Дом,Дома):-Дом=дом(_,_,_,Сиг,_),
+&#9;bound(Сиг),
+&#9;Сиг=marlboro,
+&#9;ДомРядом=дом(_,_,вода,_,_),
+&#9;not(дома_рядом(Дома,Дом,ДомРядом)),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% проверка для простых условий-фактов
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(0,Дом,_):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% взять значения проверяемого Дома
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;Дом=дом(признак(Цвет,Номер),Нац,Нап,Сиг,Жив),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% взять значения условия-факта
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;дом(_,признак(Цвет1,Номер1),Нац1,Нап1,Сиг1,Жив1),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если значения из одного списка связаны и 
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% </FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">из другого тоже - то они должны быть равны
+% иначе условие на соблюдается
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;not(сверить_значения(
+&#9;&#9;Дом,
+&#9;&#9;[ц(Цвет),нд(Номер),нц(Нац),нп(Нап),сг(Сиг),жв(Жив)],
+&#9;&#9;дом(признак(Цвет1,Номер1),Нац1,Нап1,Сиг1,Жив1),
+&#9;&#9;[ц(Цвет1),нд(Номер1),нц(Нац1),нп(Нап1),сг(Сиг1),жв(Жив1)])
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;&#9;),
+&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если пришло сюда, значит
+% все условия выполнены
+</FONT><FONT FACE="Courier New" SIZE=2>условия_не_нарушены(0,_,_):-!.
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2>значение_связано(ц(Знач)):-bound(Знач),!.
+значение_связано(нд(Знач)):-bound(Знач),!.
+значение_связано(нц(Знач)):-bound(Знач),!.
+значение_связано(нп(Знач)):-bound(Знач),!.
+значение_связано(сг(Знач)):-bound(Знач),!.
+значение_связано(жв(Знач)):-bound(Знач),!.
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% проверка связей в простых условиях-фактах
+</FONT><FONT FACE="Courier New" SIZE=2>сверить_значения(Дом,[Что|_],Дом1,[Что1|_]):-
+&#9;значение_связано(Что),
+&#9;значение_Связано(Что1),
+&#9;Что=Что1,
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если что-то совпало, то и все остальное должно совпасть
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,&#9;</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% поэтому здесь запрет отката стоит
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;Дом=Дом1,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>сверить_значения(Дом,[_|Ост],Дом1,[_|Ост1]):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% взять следующую пару значений
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;сверить_значения(Дом,Ост,Дом1,Ост1),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>сверить_значения</FONT><FONT FACE="Courier New" SIZE=2>(_,[],_,[]):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% сравнение успешно
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% не сравнивать с самим собой
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален1(дом(признак(_,Номер1),_,_,_,_),дом(признак(_,Номер2),_,_,_,_)):-Номер1=Номер2,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если оба значения связаны и равны
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален1(дом(признак(Что,_),_,_,_,_),дом(признак(Что1,_),_,_,_,_)):-
+&#9;bound(Что),bound(Что1),Что=Что1,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален1(дом(_,Что,_,_,_),дом(_,Что1,_,_,_)):-
+&#9;bound(Что),bound(Что1),Что=Что1,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален1(дом(_,_,Что,_,_),дом(_,_,Что1,_,_)):-
+&#9;bound(Что),bound(Что1),Что=Что1,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален1(дом(_,_,_,Что,_),дом(_,_,_,Что1,_)):-
+&#9;bound(Что),bound(Что1),Что=Что1,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален1(дом(_,_,_,_,Что),дом(_,_,_,_,Что1)):-
+&#9;bound(Что),bound(Что1),Что=Что1,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% проверка на условие уникальности: всех значения дома
+% должны быть уникальны
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">%
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален(Дом,[ДомДругой|_]):-
+&#9;дом_неуникален1(Дом,ДомДругой),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>дом_неуникален(Дом,[_|Дома]):-
+&#9;дом_неуникален(Дом,Дома),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% определение общих правил расположения домов
+</FONT><FONT FACE="Courier New" SIZE=2>рядом(Место,Рядом):-прилегает(Место,Рядом).
+рядом(Место,Рядом):-прилегает(Рядом,Место).
+прилегает(первый, второй).
+прилегает(второй, третий).
+прилегает(третий,четвертый).
+прилегает(четвертый,пятый).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% определение дома рядом с данным без учета лево-право
+</FONT><FONT FACE="Courier New" SIZE=2>дома_рядом([ДомРядом|_],дом(признак(_,Место),_,_,_,_),ДомРядом):-
+&#9;ДомРядом=дом(признак(_,Рядом),_,_,_,_),
+&#9;рядом(Место,Рядом).
+дома_рядом([_|Дома],Дом,ДомРядом):-
+&#9;дома_рядом(Дома,Дом,ДомРядом),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% определение дома рядом с данным с учетом лево-право
+</FONT><FONT FACE="Courier New" SIZE=2>дома_прилегают([ДомРядом|_],дом(признак(_,Место),_,_,_,_),ДомРядом):-
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;</FONT><FONT FACE="Courier New" SIZE=2>ДомРядом=дом(признак(_,Рядом),_,_,_,_),
+&#9;прилегает(Место,Рядом).
+дома_прилегают([_|Дома],Дом,ДомРядом):-
+&#9;дома_прилегают(Дома,Дом,ДомРядом),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">predicates
+</FONT><FONT FACE="Courier New" SIZE=2>все_связано1(Дом)
+все_связано(Дома)
+не_связано1(Дом)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> не_связано(Дома,Дом)
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">clauses
+</FONT><FONT FACE="Courier New" SIZE=2>все_связано1(дом(П,Н,Нап,Сиг,Ж)):-bound(П),bound(Н),bound(Нап),
+&#9;bound(Сиг),bound(Ж),!.
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% все ли решено?
+</FONT><FONT FACE="Courier New" SIZE=2>все_связано([Дом|Дома]):-
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;все_связано1(Дом),
+&#9;все_связано(Дома),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>все_связано([]):-!.
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2>не_связано1(дом(признак(Что,_),_,_,_,_)):-free(Что),!.
+не_связано1(дом(_,Что,_,_,_)):-free(Что),!.
+не_связано1(дом(_,_,Что,_,_)):-free(Что),!.
+не_связано1(дом(_,_,_,Что,_)):-free(Что),!.
+не_связано1(дом(_,_,_,_,Что)):-free(Что),!.
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% найти Дом у которого есть несвязанные значения
+</FONT><FONT FACE="Courier New" SIZE=2>не_связано([Дом|_],Дом):-
+&#9;не_связано1(Дом).
+не_связано([_|Дома],Дом):-
+&#9;не_связано(Дома,Дом).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">predicates
+nondeterm</FONT><FONT FACE="Courier New" SIZE=2> выбрать_явную_связь(Номер)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> решить2(Дом,Дома, Номер)
+все_условия_использованы(Номера, Дома)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> запомнить_выбор(Дом,Дома)
+условие_обработано(Номер,Номера)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> решить1(Дома, Номера)
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">nondeterm</FONT><FONT FACE="Courier New" SIZE=2> дорешить(Дома)
+решить(Дома)
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">clauses
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% выбрать такие условия и связи - которые явно 
+% следуют из текущих данных и условий
+% это ускоряет решение
+</FONT><FONT FACE="Courier New" SIZE=2>выбрать_явную_связь(Ном):-
+&#9;условие(Ном,Дом,[]),
+&#9;Дом=дом(признак(_,Номер)</FONT><FONT FACE="Courier New" SIZE=2>,_,_,_,_),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если произошло связывание номера, значит явная!
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;bound(Номер).
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если некое условие сработало,
+% то нужно его результат запомнить в общем списке
+</FONT><FONT FACE="Courier New" SIZE=2>запомнить_выбор(Дом,[Дом|_]).
+запомнить_выбор(Дом,[_|Дома]):-
+&#9;запомнить_выбор(Дом,Дома).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% проверяет, было ли уже такое условие обработано
+</FONT><FONT FACE="Courier New" SIZE=2>условие_обработано(Ном,[Ном|_]):-!.
+условие_обработано(Ном,[_|Обработаны]):-
+&#9;условие_обработано(Ном,Обработаны),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% выбор условий
+</FONT><FONT FACE="Courier New" SIZE=2>решить2(Дом,ВсеДома,Ном):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% для ускорения решения - выбор наиболее лучшего условия.
+% с использованием этого предиката выполнение идет менее 0,5 секунды,
+% без этого предиката - время выполнения на ПОРЯДКИ больше!
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;выбрать_явную_связь(Ном),
+&#9;условие(Ном,Дом,ВсеДома).
+решить2(Дом,ВсеДома,Ном):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% перебор всех условий
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;условие(Ном,Дом,ВсеДома).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% проверка - все ли условия использованы
+</FONT><FONT FACE="Courier New" SIZE=2>все_условия_использованы(Обработано,Дома):-
+&#9;условие(Номер,_,Дома),
+&#9;not(условие_обработано(Номер,Обработано)),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!,fail.
+</FONT><FONT FACE="Courier New" SIZE=2>все_условия_использованы(_,_):-&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% применяет все условия задачи и выдает полученный
+% результат для дальнейшего связывания
+</FONT><FONT FACE="Courier New" SIZE=2>решить1(ВсеДома,Обработано):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если все правила использованы, то выход и выдать результат
+% для дальнейшего подбора наобум
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;все_условия_использованы(Обработано,ВсеДома),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+</FONT><FONT FACE="Courier New" SIZE=2>решить1(ВсеДома,Обработаны):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% использовать условие задачи
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;решить2(Дом,ВсеДома,Ном),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% это условие еще не обрабатывалось
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;not(условие_обработано(Ном,Обработаны)),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% запомним результат применения условия
+&#9;% здесь если ниже будет откат, то присвоение
+&#9;% может быть сделано для других домов
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;запомнить_выбор(Дом,ВсеДома),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если дом уникальный
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;not(дом_неуникален(Дом,ВсеДома)),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% и не другие нарушены условия задачи
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;условия_не_нарушены(_,Дом,ВсеДома),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% то идем дальше
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;решить1(ВсеДома,[Ном|Обработаны]).
+</FONT><FONT FACE="Courier New" SIZE=2>
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% оставшиеся несвязанные значения свяжем на основании
+% условия, что значения не должны повторяться
+% то есть можно взять любое возможное значение
+% и вставить его, если не нарушены условия задачи
+</FONT><FONT FACE="Courier New" SIZE=2>дорешить(ВсеДома):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% взять дом, у которого есть несвязанное значение
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;не_связано(ВсеДома,Дом),
+&#9;Дом=дом(П,Н,Нап,Сиг,Жив),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% выбрать это значение наобум
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;дом_наобум(П,Н,Нап,Сиг,Жив),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% проверим условие уникальности
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;not(дом_неуникален(Дом,ВсеДома)),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% и при этом все условия задачи верны
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;условия_не_нарушены(_,Дом,ВсеДома),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% искать другое несвязанное значение
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;дорешить(ВсеДома).
+дорешить(Дома):-
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% если все уже решено (связано), то выход
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;все_связано(Дома),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+
+</FONT><FONT FACE="Courier New" SIZE=2>решить(Дома):-
+&#9;Дома=[дом(признак(_,первый),_,_,_,_),
+&#9;дом(признак(_,второй),_,_,_,_),
+&#9;дом(признак(_,третий),_,_,_,_),
+&#9;дом(признак(_,четвертый),_,_,_,_),
+&#9;дом(признак(_,пятый),_,_,_,_)],
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% обработка условий
+% здесь все условия должны быть выполнены (применены)
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;решить1(Дома,[]),
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#0000ff">% оставшиеся несвязанные значения нужно
+% связать наобум с проверкой на условия
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;дорешить(Дома),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;!.
+
+</FONT><FONT FACE="Courier New" SIZE=2 COLOR="#ff00ff">Goal</FONT><FONT FACE="Courier New" SIZE=2>:-
+&#9;marktime(0,T1),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;решить(Дома),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;marktime(0,T2),
+</FONT><FONT FACE="Courier New" SIZE=2>&#9;difftime(T2,T1,Тост),
+&#9;nl,write(Дома,":",Тост).</FONT>
+</PRE>
+Возможно, программа покажется Вам довольно навороченной, но именно такие действия совершает человек при решении этой головоломки. Если Вы сможте упростить эту программу - сообщите мне и Ваше авторство будет учтено!
+</FONT></P>
+
+<P><A HREF="HTTP://icreator.ru/programming/"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A></P>
+
+<P><A HREF="HTTP://www.icreator.ru/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">на главную страницу</U></FONT></A> </P>
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=269943"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=269943;t=180;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=15 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><A HREF="http://top.mail.ru/jump?from=269943"><IMG SRC="http://top.list.ru/counter?js=na;id=269943;t=180" BORDER=0 WIDTH=88 HEIGHT=15 ALT="Рейтинг@Mail.ru"></A></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";hotlog_d=document; hotlog_n=navigator;hotlog_rn=Math.random();
+hotlog_n_n=(hotlog_n.appName.substring(0,3)=="Mic")?0:1;
+hotlog_r=""+hotlog_rn+"&s=25682&im=26&r="+escape(hotlog_d.referrer)+"&pg="+
+escape(window.location.href);
+hotlog_d.cookie="hotlog=1"; hotlog_r+="&c="+(hotlog_d.cookie?"Y":"N");
+hotlog_d.cookie="hotlog=1; expires=Thu, 01-Jan-70 00:00:01 GMT"</script>
+<script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";hotlog_s=screen;
+hotlog_r+="&wh="+hotlog_s.width+'x'+hotlog_s.height+"&px="+((hotlog_n_n==0)?
+hotlog_s.colorDepth:hotlog_s.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+hotlog_d.write("<a href=http://click.hotlog.ru/?25682 target=_top><img "+
+"src=\"http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&\" border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=26" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog -->
+</BODY>
+</HTML>

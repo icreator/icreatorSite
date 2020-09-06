@@ -1,0 +1,91 @@
+{{extend 'layout.html'}}
+
+<div class='container' style='background-color:maroon;'>
+{{=h}}
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Преобразователь
+абсолютного тепла на диоде<o:p></o:p></b></p>
+
+<p class=MsoNormal align=right style='text-align:right;text-indent:1.0cm;
+line-height:150%'>Ермолаев Дмитрий Сергеевич<br>2007-10-08</p>
+
+<p class=MsoNormal>Вы наверняка <span class=GramE>знаете</span> как работает
+параметрический ёмкостной преобразователь: конденсатор с подвижными пластинами.
+Сначала пластины сведены, так что ёмкость конденсатора максимальна. Его
+заряжают от внешнего источника электрической энергии. Затем прикладывают
+механическую силу, растягивая пластины на некоторое расстояние. В результате
+ёмкость его падает, а напряжение на обкладках растет. Наконец, подключают
+нагрузку, и весь заряд стекает в неё. В результате баланс энергий такой:</p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>1</sub>+<span
+lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>2 </sub>= <span
+lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>3</sub>, где<o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>1
+</sub>= 0.5*<span lang=EN-US style='mso-ansi-language:EN-US'>q</span>*<span
+lang=EN-US style='mso-ansi-language:EN-US'>U</span><sub>1</sub> – электрическая
+энергия, накопленная в конденсаторе при заряде его,</p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>2</sub>
+– механическая энергия, потраченная на развод пластин конденсатора,</p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>3</sub>
+= 0.5*<span lang=EN-US style='mso-ansi-language:EN-US'>q</span>*<span
+lang=EN-US style='mso-ansi-language:EN-US'>U</span><sub>2 </sub>– электрическая
+энергия, стекшая в нагрузку.</p>
+
+<p class=MsoNormal>Тут <span lang=EN-US style='mso-ansi-language:EN-US'>U</span><sub>1</sub>
+и <span lang=EN-US style='mso-ansi-language:EN-US'>U</span><sub>2</sub> –
+начальное напряжение на конденсаторе (перед разводом пластин) и конечное (после
+развода пластин)</p>
+
+<p class=MsoNormal>Затем пластины сводят – при этом никакой энергии не тратится,
+так как заряда на обкладках нет, и цикл повторяется снова. Видно, что тут
+механическая энергия преобразуется в <span class=GramE>электрическую</span>.</p>
+
+<p class=MsoNormal>Так вот, а что если <b style='mso-bidi-font-weight:normal'>энергию
+первоначального заряда брать из окружающей среды</b>??? Тогда мы получим
+даровую энергию, ведь на выходе будет больше электрической <span class=GramE>энергии</span>
+чем было затрачено механической энергии на развод пластин. Вот что я предлагаю:
+в полупроводниковом <span lang=EN-US style='mso-ansi-language:EN-US'>p</span>-<span
+lang=EN-US style='mso-ansi-language:EN-US'>n</span><span lang=EN-US> </span>переходе
+(<span class=GramE>например</span> у диодов) образуется «электронно-дырочный
+переход». Поскольку в <span class=SpellE><i>р</i>-области</span> образованного
+электронно-дырочного перехода концентрация дырок гораздо выше, чем в <i>n</i>-области,
+дырки из <span class=SpellE><i>p</i></span> -области стремятся диффундировать в
+электронную область. Электроны диффундируют в <span class=SpellE><i>р</i>-область</span>.
+Однако после ухода дырок в <i>p</i>-области остаются отрицательно заряженные
+акцепторные атомы, а после ухода электронов в <i>n</i>-области — положительно
+заряженные <span class=SpellE>донорные</span> атомы. Так как акцепторные и <span
+class=SpellE>донорные</span> атомы неподвижны, то в области электронно-дырочного
+перехода<span class=GramE>.</span> <span class=GramE>о</span>бразуется двойной
+слой пространственного заряда — отрицательные заряды в <span class=SpellE><i>р</i>-области</span>
+и положительные заряды в <span class=SpellE><i>n</i></span> –области. Таким
+образом, создается тот самый начальный заряд «конденсатора». Тут в роли
+конденсатора выступают пространственные заряды. А устройство преобразования
+выполнено в виде двух полупроводниковых пластин, каждая из которых и является
+обкладкой нашего конденсатора. Но в отличие от общеизвестного способа, мы
+полностью сводим пластины – до получения их омического контакта. В результате в
+границе соприкосновения их создается пространственный заряд. Этот заряд создается
+тепловым хаотическим движением. Если бы пластины находились при 0К, то диффузии
+зарядов бы не происходило. Значит, мы имеем преобразование абсолютного тепла в
+пространственный электрический заряд. И значит, на границе соприкосновения
+происходит локальное охлаждение. А теперь разведем пластины, и этот заряд
+отдадим в нагрузку – получим энергии больше, чем затратили! При этом
+сохраняется баланс энергий:</p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>U</span><sub>1</sub>+<span
+lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>2</sub> = <span
+lang=EN-US style='mso-ansi-language:EN-US'>E</span><sub>3</sub><o:p></o:p></p>
+
+<p class=MsoNormal><span class=GramE><span lang=EN-US style='mso-ansi-language:
+EN-US'>U</span><sub>1</sub> – внутренняя тепловая энергия, преобразованная в
+пространственный электрический заряд на границе <span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>-<span lang=EN-US style='mso-ansi-language:
+EN-US'>n</span> перехода.</span> Заметьте, закон сохранения энергии не
+нарушается.<o:p></o:p></p>
+
+</FONT>
+
+{{=f}}
+</div>

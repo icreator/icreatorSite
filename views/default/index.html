@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+    <header class="container-fluid background">
+        {{ = A(IMG(_src=URL('static', 'images/icreator.jpg'), _class='img-circle'),
+                  _class="navbar-brand",_href=URL('default', 'index'),
+                  _id="web2py-logo")}}
+
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
+
+{{=content}}

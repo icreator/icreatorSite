@@ -1,0 +1,72 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Выходные каскады транзисторного линейного усилителя без общей ООС</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+</HEAD>
+<BODY>
+
+<FONT FACE="Times New Roman" SIZE=4><P>"Выходные каскады транзисторного линейного усилителя без общей ООС"</P>
+</FONT><FONT FACE="Times New Roman">
+<FONT FACE="Times New Roman"><P>Схема выходных каскадов усилителя должна вносить минимальные искажения в усиливаемый сигнал. По моему мнению, самая линейная и одновременно простая схема выходных каскадов усилителя в классе АВ будет такой как изображена на рис.1</P>
+</FONT><P><IMG SRC="Out.gif" WIDTH=389 HEIGHT=505></P>
+<P>&nbsp;</P>
+<FONT FACE="Times New Roman"><P>Для объяснения причин выбора такой схемы рассмотрим некоторые варианты общепринятых схем. Схема с выходными транзисторами, включенными по схеме ОЭ, вносит значительные искажения и не рассматривается. </P><IMG SRC="OutSimm.gif" ALIGN="LEFT" HSPACE=4 WIDTH=389 HEIGHT=471>
+<P>Схема с выходными транзисторами, включенными по схеме с общим коллектором и с симметричным усилением в обоих плечах. В такой схеме для стабилизации тока покоя выходных транзисторов всегда используются резисторы в цепи эмиттеров выходных транзисторов. Здесь это РР1 и РР2 по 0.22 Ом. Выходное напряжение около 33В. допустим идеальный случай, что усиление предварительных каскадов полностью симметрично, тогда их можно заменить одним генератором напряжения и одним источником напряжения смещения, которой задает выходной ток покоя. При токе покоя около нуля получаем искажения размахом более 400мВ, что соответствует Кг 0,66%. Замечу, что это получено на идеальных моделях транзисторов. Реально, эту цифру нужно увеличить в три раза. Вид искажений типа ступенька. При токе покоя 0,8А искажения уменьшаются до размаха 127мВ, что соответствует Кг 0,2% в идеальной схеме. При переводе схемы в класс А, то есть, когда транзисторы не выключаются, размах искажений падает до 12мВ, что соответствует Кг 0,0</FONT>2<FONT FACE="Times New Roman">%. Однако, в классе А мощность выделяемая на транзисторах превышает более чем в два раза чем максимальная отдаваемая в нагрузку. Другими словами это настоящая печка. Характер и вид искажений приведены на рисунке 4.</P>
+</FONT><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<FONT FACE="Times New Roman"><P>Если же убрать сопротивления в цепях эмиттеров выходных транзисторов, то уже при токе покоя 0,28А, размах искажений упадет до 31мВ, что соответствует Кг 0,047%. То есть Кг упал почти в 10раз! Это объясняется тем, что транзисторы перестают резко закрываться и влияние местной обратной отрицательной связи, которая создается резисторами РР1 и РР2 не влияет на коэффициенты усиления плеч каскада. </P>
+</FONT><P><IMG SRC="OutSimm028x.gif" WIDTH=1015 HEIGHT=321></P>
+<FONT FACE="Times New Roman"><P>При этом форма тока выходных транзисторов следующая:</P>
+</FONT><P><IMG SRC="OutSimm028xT.gif" WIDTH=1013 HEIGHT=321></P>
+<FONT FACE="Times New Roman"><P>Теперь можно упростить схему, сделав цепи предварительного усиления без симметрии. Получим схему как раз как я предлагаю (Рис1.). И при этом, при токе 0,28А размах искажений остается около 33мВ, что соответствует Кг всего 0,049%. Однако при этом значительно упрощаются схемы предварительного усиления. Но следует отметить, что здесь невозможно нарастить выходную мощность параллельным включением выходных транзисторов и что для стабилизации тока покоя необходимы специальные меры. Я привожу схему контроля тока покоя здесь: </FONT><A HREF="ampl1.htm"><U><FONT COLOR="#0000ff">ampl1.htm</U></FONT></A></P>
+<P>&nbsp;</P><DIR>
+
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#9;Автор Ермолаев Дмитрий Сергеевич </FONT></P></DIR>
+<A HREF="HTTP://icreator.ru/amplif/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">назад в раздел</U></FONT></A>
+<P><A HREF="HTTP://www.icreator.ru/index.htm"><U><FONT FACE="Times New Roman" COLOR="#0000ff">на главную страницу</U></FONT></A> </P>
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=269943"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=269943;t=180;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=15 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><A HREF="http://top.mail.ru/jump?from=269943"><IMG SRC="http://top.list.ru/counter?js=na;id=269943;t=180" BORDER=0 WIDTH=88 HEIGHT=15 ALT="Рейтинг@Mail.ru"></A></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+<!-- HotLog -->
+<script language="javascript">
+hotlog_js="1.0";hotlog_d=document; hotlog_n=navigator;hotlog_rn=Math.random();
+hotlog_n_n=(hotlog_n.appName.substring(0,3)=="Mic")?0:1;
+hotlog_r=""+hotlog_rn+"&s=25682&im=26&r="+escape(hotlog_d.referrer)+"&pg="+
+escape(window.location.href);
+hotlog_d.cookie="hotlog=1"; hotlog_r+="&c="+(hotlog_d.cookie?"Y":"N");
+hotlog_d.cookie="hotlog=1; expires=Thu, 01-Jan-70 00:00:01 GMT"</script>
+<script language="javascript1.1">
+hotlog_js="1.1";hotlog_r+="&j="+(navigator.javaEnabled()?"Y":"N")</script>
+<script language="javascript1.2">
+hotlog_js="1.2";hotlog_s=screen;
+hotlog_r+="&wh="+hotlog_s.width+'x'+hotlog_s.height+"&px="+((hotlog_n_n==0)?
+hotlog_s.colorDepth:hotlog_s.pixelDepth)</script>
+<script language="javascript1.3">hotlog_js="1.3"</script>
+<script language="javascript">hotlog_r+="&js="+hotlog_js;
+hotlog_d.write("<a href=http://click.hotlog.ru/?25682 target=_top><img "+
+"src=\"http://hit2.hotlog.ru/cgi-bin/hotlog/count?"+
+hotlog_r+"&\" border=0 width=88 height=31 alt=HotLog></a>")</script>
+<noscript><a href=http://click.hotlog.ru/?25682 target=_top><img
+src="http://hit2.hotlog.ru/cgi-bin/hotlog/count?s=25682&im=26" border=0 
+width="88" height="31" alt="HotLog"></a></noscript>
+<!-- /HotLog -->
+</BODY>
+</HTML>

@@ -1,0 +1,250 @@
+{{extend 'layout.html'}}
+
+<div class='container' style='background-color:maroon;'>
+{{=h}}
+
+<h3 class="western" style="text-indent: 0.7cm">ЭКОНОМИКА. ЗАКОН ЦЕНЫ.</h3>
+<p align="right"><font size="3" style="font-size: 12pt">Посвящается
+моей </font>
+</p>
+<p align="right"><font size="3" style="font-size: 12pt">родине &ndash;
+России.</font></p>
+<p align="justify" style="text-indent: 0.7cm">&nbsp;</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">В
+данной работе проводится разбор сути производственных затрат, с тем
+что бы упростить классическую формулу цены. Предлагаемая автором
+новая формула цены содержит в себе три составляющих &ndash; налоги,
+прибыль и зарплата. Подобная формула позволяет более полно
+анализировать явления и суть экономики.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt"><b>1.
+Определение понятий</b></font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Сначала
+дадим определения некоторым понятиям, которые будут использованы в
+работе. </font>
+</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">БЛАГО
+&ndash; товар или оборудование или сырье или услуга или их
+совокупность.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ДЕНЬГИ
+&ndash; совокупность всех материальных ценностей, а именно - наличных
+и безналичных денег и БЛАГА. Здесь имеется в виду, что БЛАГО &ndash;
+это товарное выражение для ДЕНЕГ, то есть выражается не денежными
+банкнотами, а товаром. Это введено для того, чтобы учесть все
+бартерные сделки в экономике.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА
+&ndash; стоимость БЛАГА, выраженная эквивалентом ДЕНЕГ.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">НАЛОГИ
+&ndash; совокупность ДЕНЕГ, переданная государству предприятием и его
+работниками в соответствии с налоговым законодательством.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЗАРПЛАТА
+&ndash; совокупность ДЕНЕГ, выданная на руки работникам предприятия</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ПРИБЫЛЬ
+&ndash; совокупность ДЕНЕГ, присвоенная предприятием в результате его
+деятельности.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">СЕБЕСТОИМОСТЬ
+&ndash; траты, выраженные в ДЕНЬГАХ, необходимые для производства
+БЛАГА. </font>
+</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЗАТРАТЫ
+&ndash; совокупность ДЕНЕГ, отданная другим предприятиям за БЛАГА
+необходимые для производства данного БЛАГА.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ДОБАВЛЕНАЯ
+СТОИМОСТЬ &ndash; совокупность ДЕНЕГ, добавленная к ЗАТРАТАМ для
+получения ЦЕНЫ БЛАГА.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt"><b>2.
+Предыстория</b></font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">В
+современной теории экономики СЕБЕСТОИМОСТЬ любого БЛАГА,
+производимого предприятием, складывается из различных трат
+предприятия, которые в том числе, включают в себя траты на отчисление
+НАЛОГОВ, и выплату ЗАРПЛАТЫ. Таким образом, можно записать формулу
+СЕБЕСТОИМОСТИ БЛАГА следующим образом:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">СЕБЕСТОИМОСТЬ
+= ЗАТРАТЫ + ЗАРПЛАТА + НАЛОГИ</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Также
+известно, что ЦЕНА произведенного БЛАГА есть сумма СЕБЕСТОИМОСТИ
+этого БЛАГА и ПРИБЫЛИ, которую получает предприятие при продаже
+данного БЛАГА. Следовательно, получаем:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА
+= СЕБЕСТОИМОСТЬ + ПРИБЫЛЬ = ЗАТРАТЫ + ЗАРПЛАТА + НАЛОГИ + ПРИБЫЛЬ.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Рассмотри
+второй вариант формулы ЦЕНЫ. Известно что:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ДОБАВЛЕННАЯ
+СТОИМОСТЬ = ЗАРПЛАТА + НАЛОГИ + ПРИБЫЛЬ,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">В
+свою очередь</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА
+= ЗАТРАТЫ + ДОБАВЛЕННАЯ СТОИМОСТЬ = ЗАТРАТЫ + ЗАРПЛАТА + НАЛОГИ +
+ПРИБЫЛЬ</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Таким
+образом, видно, что обе формулы ЦЕНЫ тождественны и приводят одному и
+тому же выражению состоящему из четырех составляющих &ndash; ЗАТРАТЫ,
+НАЛОГИ, ЗАРПЛАТА и ПРИБЫЛЬ. Такая формула широко известна и является
+классической формулой ЦЕНЫ. </font>
+</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Так
+же известно, что для анализа экономики основным показателем является
+как раз ЦЕНА. Например, валовой национальный продукт (ВНП) есть сумма
+ЦЕН всех конечных БЛАГ реализованных в течение года. Таким образом,
+что бы проанализировать поведение ВНП необходимо знать все четыре
+составляющих ЦЕНЫ. В этом кроется недостаток классической формулы
+ЦЕНЫ. Дело в том, что составляющая ЗАТРАТЫ тяжело поддается анализу и
+соответственно на базе классической формулы ЦЕНЫ проблематично
+анализировать основные показатели экономики. Сами ЗАТРАТЫ &ndash; это
+слишком ёмкое понятие, которое с трудом поддается анализу и оценке. А
+коли так, то и остальные составляющие в формуле ЦЕНЫ, да и сама ЦЕНА,
+остаются неизвестными переменными. Для подтверждения сказанного
+рассмотрим простой пример. Известно, что валовой национальный продукт
+(ВНП) это сумма реализованных конечных БЛАГ в выражении ДЕНЕГ в
+какой-либо стране за один год. То есть это есть сумма всех ЦЕН
+реализованных конечных БЛАГ:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ВПН
+= </font><font face="Symbol"><font size="3" style="font-size: 12pt">S</font></font><font size="3" style="font-size: 12pt">ЦЕНА_к.б.,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Где
+ЦЕНА_к.б. &ndash; это ЦЕНА каждого конечного БЛАГА, реализованного в
+данной стране в течение одного года. </font>
+</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Используя
+классическую формулу ЦЕНЫ, не представляется возможным найти, скажем,
+ПРИБЫЛЬ предприятий, участвующих в создании конечных БЛАГ, если не
+известны все четыре величины: ВНП, НАЛОГИ, ЗАРПЛАТА и ЗАТРАТЫ.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Так
+же, используя классическую формулу ЦЕНЫ затруднительно судить об
+экономическом состоянии страны. Например, каковы перспективы развития
+экономики? Развитие экономики определяется в первую очередь ПРИБЫЛЬЮ
+предприятий. А определить ее&nbsp; затруднительно.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt"><b>3.
+Новая формула цены (микроэкономические и макроэкономические
+составляющие цены)</b></font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">В
+данной работе автором раскрыта суть ЗАТРАТ и выведена другая формула
+ЦЕНЫ.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА
+любого БЛАГА есть сумма трех составляющих:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА_блага
+= НАЛОГИ_блага + ЗАРПЛАТА_блага + ПРИБЫЛЬ_блага</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Где</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА_блага
+&ndash; ЦЕНА данного БЛАГА,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">НАЛОГИ_блага
+&ndash; НАЛОГИ, выплаченные предприятиями при создании данного БЛАГА
+на всех стадиях его производства,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЗАРПЛАТА_блага
+&ndash; ЗАРПЛАТА, выданная работникам, участвовавших в создании
+данного БЛАГА на всех стадиях его производства.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ПРИБЫЛЬ_блага
+&ndash; ПРИБЫЛЬ, полученная предприятиями, при создании данного БЛАГА
+на всех стадиях его производства</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Причем
+эта формула действительна как для отдельного БЛАГА, так и для любых
+макроэкономических показателей, в которых участвует ЦЕНА. Это значит,
+что для любой экономической формации, например, отдельной страны,
+отдельного региона или всей планеты Земля, и для любого интервала
+времени, например месяца или года, действительна следующая формула:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА_общ
+= НАЛОГИ_общ + ЗАРПЛАТА_общ + ПРИБЫЛЬ_общ</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Где,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА_общ
+&ndash; общая сумма реализованных БЛАГ, в данной экономической
+формации за данный интервал времени.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">НАЛОГИ_общ
+&ndash; общая сумма НАЛОГОВ, выплаченных предприятиями в данной
+экономической формации и за данный интервал времени,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЗАРПЛАТА_общ
+&ndash; общая сумма ЗАРПЛАТЫ, выданная работникам, в данной
+экономической формации и за данный интервал времени.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ПРИБЫЛЬ_общ
+&ndash; общая сумма ПРИБЫЛИ, полученная предприятиями, в данной
+экономической формации и за данный интервал времени.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Например,
+для ВНП получаем следующую формулу:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ВПН
+= </font><font face="Symbol"><font size="3" style="font-size: 12pt">S</font></font><font size="3" style="font-size: 12pt">ЦЕНА_к.б
+= </font><font face="Symbol"><font size="3" style="font-size: 12pt">S</font></font><font size="3" style="font-size: 12pt">НАЛОГИ_к.б
++ </font><font face="Symbol"><font size="3" style="font-size: 12pt">S</font></font><font size="3" style="font-size: 12pt">ЗАРПЛАТА_к.б
++ </font><font face="Symbol"><font size="3" style="font-size: 12pt">S</font></font><font size="3" style="font-size: 12pt">ПРИБЫЛЬ_к.б.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Где
+</font>
+</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА_к.б.
+&ndash; цена конечного БЛАГА,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">НАЛОГИ_к.б.
+&ndash; НАЛОГИ, выплаченные предприятиями при создании конечного
+БЛАГА на всех стадиях его производства,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЗАРПЛАТА_к.б.
+&ndash; ЗАРПЛАТА, выданная работникам, участвовавших в создании
+конечного БЛАГА на всех стадиях его производства.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ПРИБЫЛЬ_к.б.
+&ndash; ПРИБЫЛЬ, полученная предприятиями, при создании конечного
+БЛАГА на всех стадиях его производства</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Из
+этой формулы гораздо легче определить необходимую составляющую для
+определения важных экономических показателей.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt"><b>4.
+Доказательство закона цены (трёх составляющих цены)</b></font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Рассмотри
+сначала одно предприятие.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Как
+было описано выше, ЗАТРАТЫ предприятия &ndash; это ДЕНЬГИ, которые
+предприятие передает другим предприятиям за получение от них БЛАГ,
+необходимых для производства данного&nbsp; БЛАГА. Сюда входит оплата
+запчастей, рекламы, ремонта производственного оборудования, обучение
+специалистов и прочее. Как было показано выше ЗАТРАТЫ вычисляются как
+сумма ЦЕН на БЛАГА, а, как было показано выше, ЦЕНА любого БЛАГА
+вычисляется по следующей формуле:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">ЦЕНА
+= ЗАТРАТЫ + НАЛОГИ + ЗАРПЛАТА + ПРИБЫЛЬ.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Теперь
+рассмотри целую цепочку предприятий связанных с производством данного
+БЛАГА. Допустим предприятие оплачивает, скажем, рекламу, и для него
+это есть ЗАТРАТЫ, то для рекламного агентства, ДЕНЬГИ поступившие на
+его счет есть ЦЕНА за БЛАГО которое агентство произвело, а именно за
+рекламу. И уже у рекламного агентства ЦЕНА будет вычисляться как
+ДОБАВОЧНАЯ СТОИМОСТЬ + ЗАТРАТЫ для данной рекламы. Таким образом,
+получаем формулу для ЗАТРАТ на <i>i-</i>м этапе производства:</font></p>
+<p align="justify" style="text-indent: 0.7cm">
+
+<sub><img src="{{=sp}}cost3-0001.JPG" name="Изображение3" align="bottom" width="598" height="42" border="0">
+<img src="{{=sp}}cost3-0002.JPG" name="Изображение4" align="bottom" width="523" height="43" border="0"></sub>
+
+<font size="3" style="font-size: 12pt">,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">где
+<i>j</i> &ndash; это индекс указывающий на предприятия, которым
+переводило ДЕНЬГИ предприятие <i>i-</i>го этапа производства.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt"><i>i-</i></font><font size="3" style="font-size: 12pt">1
+&ndash; это указатель на предыдущие, по отношению к </font><font size="3" style="font-size: 12pt"><i>i</i></font><font size="3" style="font-size: 12pt">,
+этапы производства.</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Отсюда
+видно, что при рассмотрении ЗАТРАТ, по каждому этапу производства в
+глубь, доля ЗАТРАТ становится все меньше и меньше в ЦЕНЕ данного
+БЛАГА, в то время как остальные составляющие будут &laquo;вбирать&raquo;
+в&nbsp; себя ДЕНЬГИ ранее относящиеся к ЗАТРАТАМ. И дойдя до самого
+глубокого этапа, ЗАТРАТЫ будут равны нулю. В реальной жизни трудно
+определить &laquo;самый глубокий&raquo; этап производства. Для
+решения такой задачи используется &laquo;математический предел&raquo;,
+в котором количество этапов стремится к бесконечности. В таком
+математическом пределе ЗАТРАТЫ будут стремиться к нулю. Тогда
+получаем, что ЦЕНА данного БЛАГА складывается из следующих трех
+составляющих:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><img src="{{=sp}}cost3-0003.JPG" name="Изображение5" align="bottom" width="389" height="27" border="0"><font size="3" style="font-size: 12pt">,</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">что
+и требовалось доказать.</font></p>
+<p align="justify" style="text-indent: 0.7cm">&nbsp;</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Автор:
+Ермолаев Дмитрий Сергеевич </font>
+</p>
+<p align="justify" style="text-indent: 0.7cm">&nbsp;</p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">Литература:</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">1.Борисов
+А.Б. &laquo;Большой экономический словарь&raquo;. &ndash;М.:Книжный
+мир, 1999г</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">2.Современная
+экономика. Общедоступный учебный курс. Ростов н/Д.: изд-во &laquo;Феникс&raquo;,
+1999г</font></p>
+<p align="justify" style="text-indent: 0.7cm"><font size="3" style="font-size: 12pt">3.
+&laquo;ЭКОНОМИКА. ЗАКОНЫ ЕРМОЛАЕВА&raquo;, Ермолаев Д.С. 1995.
+(</font><a href="ZE.DOC"><font color="#0000ff"><font face="Times New Roman"><font size="3" style="font-size: 12pt"><u>статья
+в электроном виде</u></font></font></font></a><font size="3" style="font-size: 12pt">)</font></p>
+
+{{=f}}
+</div>
